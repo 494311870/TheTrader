@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://caa7fgruxr5xu"]
+
+[ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/mask.png" id="1_0ovl6"]
+[ext_resource type="Texture2D" uid="uid://bmq48qefhrfk6" path="res://game/art/rect.png" id="2_p5kf2"]
+[ext_resource type="Texture2D" uid="uid://kftu2stv3ixm" path="res://game/art/border_1.png" id="3_ocng2"]
+
+[node name="ItemVisuals" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 300.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 18
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
+clip_children = 1
+clip_contents = true
+layout_mode = 2
+texture = ExtResource("1_0ovl6")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p5kf2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Border" type="NinePatchRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ocng2")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
