@@ -28,12 +28,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -740.0
-offset_top = -507.0
+offset_top = -505.0
 offset_right = 760.0
-offset_bottom = -207.0
+offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("2_dbu28")
+slot_quantity = null
+slot_size = null
+start_position = null
 
 [node name="SmallItemUI" parent="CanvasLayer/Slot" instance=ExtResource("2_b8hqy")]
 layout_mode = 2
@@ -81,6 +84,78 @@ offset_right = 1050.0
 offset_bottom = 300.0
 
 [node name="LargeItemUI" parent="CanvasLayer/Slot" instance=ExtResource("4_vv7y0")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1050.0
+offset_right = 1500.0
+offset_bottom = 300.0
+
+[node name="Slot2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -735.0
+offset_top = -905.0
+offset_right = 765.0
+offset_bottom = -605.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_dbu28")
+slot_quantity = null
+slot_size = null
+start_position = null
+
+[node name="SmallItemUI" parent="CanvasLayer/Slot2" instance=ExtResource("2_b8hqy")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 150.0
+offset_bottom = 300.0
+
+[node name="SmallItemUI3" parent="CanvasLayer/Slot2" instance=ExtResource("2_b8hqy")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 150.0
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="SmallItemUI2" parent="CanvasLayer/Slot2" instance=ExtResource("2_b8hqy")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 300.0
+offset_right = 450.0
+offset_bottom = 300.0
+
+[node name="MediumItemUI2" parent="CanvasLayer/Slot2" instance=ExtResource("3_xrgv7")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 450.0
+offset_right = 750.0
+offset_bottom = 300.0
+
+[node name="MediumItemUI3" parent="CanvasLayer/Slot2" instance=ExtResource("3_xrgv7")]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 750.0
+offset_right = 1050.0
+offset_bottom = 300.0
+
+[node name="LargeItemUI" parent="CanvasLayer/Slot2" instance=ExtResource("4_vv7y0")]
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0

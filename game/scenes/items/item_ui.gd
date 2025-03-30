@@ -28,6 +28,7 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	_is_dragging = true
 	var item: Control = duplicate()
 	item.position = -at_position
+	item.z_index = 10
 
 	var preview := Control.new()
 	preview.add_child(item)

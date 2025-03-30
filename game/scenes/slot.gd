@@ -1,3 +1,4 @@
+class_name Slot
 extends Control
 
 @export var slot_quantity: int = 10
@@ -18,10 +19,10 @@ func _ready():
 		if child is Control and child.visible == false:
 			child.queue_free()
 
-	_reset_slots()
+	reset_slots()
 
 
-func _reset_slots() -> void:
+func reset_slots() -> void:
 	_sort_children()
 
 	_slots.fill(-1)
@@ -81,22 +82,36 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _has_enough_space_after(target_start: int, drop_item: ItemUI) -> bool:
-	var space          := 0
-	var item_size: int =  drop_item.item_size
+	var space                := 0
+	var item_size: int       =  drop_item.item_size
+	var drop_item_index: int =  drop_item.item_index \
+								if (drop_item.get_parent() == self)\
+								else  - 1
+
 	for i in range(target_start, _slots.size()):
-		if _slots[i] == -1 || _slots[i] == drop_item.item_index:
+		if _slots[i] == -1 || _slots[i] == drop_item_index:
 			space += 1
-			if space >= item_size:
-				return true
+		if space >= item_size:
+			return true
 
 	return false
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var origin_slot       = data.item.get_parent()
-	var target_slot: Node = self
+	var origin_slot: Slot = data.item.get_parent() as Slot
+	var target_slot: Slot = self
+	var drop_item: ItemUI = data.item
+
 	if origin_slot == target_slot:
-		_change_location(at_position, data)
+		var slot_index: int = _slots.find(drop_item.item_index)
+		for i in range(0, drop_item.item_size):
+			_slots[slot_index + i] = -1
+	else:
+		drop_item.reparent(target_slot)
+		drop_item.item_index = _get_next_item_index()
+		origin_slot.reset_slots()
+
+	_change_location(at_position, data)
 
 
 func _change_location(at_position: Vector2, data: Variant) -> void:
@@ -106,23 +121,13 @@ func _change_location(at_position: Vector2, data: Variant) -> void:
 
 	_insert_item(drop_item, slot_index)
 	_update_item_position()
-	_reset_slots()
+	reset_slots()
 	print("index : %s" % slot_index)
 	print("item.position : %s" % drop_item.position)
 
 
 func _insert_item(drop_item: ItemUI, to_index: int) -> void:
-	var drop_item_index: int
-
-	if drop_item.get_parent() == self:
-		drop_item_index = drop_item.item_index
-		var slot_index: int = _slots.find(drop_item_index)
-		for i in range(0, drop_item.item_size):
-			_slots[slot_index + i] = -1
-	else:
-		drop_item.reparent(self)
-		drop_item.item_index = _get_next_item_index()
-		drop_item_index = drop_item.item_index
+	var drop_item_index: int = drop_item.item_index
 
 	var backup := PackedInt32Array()
 	for i in range(0, drop_item.item_size):
@@ -135,7 +140,7 @@ func _insert_item(drop_item: ItemUI, to_index: int) -> void:
 		move_start_index = to_index
 	else:
 		move_start_index = _slots.find(_slots[to_index])
-	
+
 	for i in range(move_start_index, _slots.size()):
 		var item_index := _slots[i]
 		if item_index < 0 and item_size > 0:
@@ -151,7 +156,7 @@ func _insert_item(drop_item: ItemUI, to_index: int) -> void:
 
 
 func _get_next_item_index() -> int:
-	for i in range(_slots.size(), 0, -1):
+	for i in range(_slots.size() - 1, 0, -1):
 		if _slots[i] >= 0:
 			return _slots[i] + 1
 
