@@ -1,7 +1,7 @@
-class_name ItemUI 
+class_name ItemUI
 extends Control
 
-enum ItemSize {
+enum ItemSize{
 	Small = 1,
 	Medium = 2,
 	Large = 3,
@@ -9,7 +9,7 @@ enum ItemSize {
 
 @export var item_size: ItemSize
 
-var item_index: int = 0
+var item_index: int    = 0
 var _is_dragging: bool = false
 
 
