@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://bajadm2nabg8r" path="res://game/art/background.png" id="1_3duro"]
-[ext_resource type="PackedScene" uid="uid://dvhqwfe8lvfqx" path="res://game/scenes/small_item_ui.tscn" id="2_b8hqy"]
+[ext_resource type="PackedScene" uid="uid://dvhqwfe8lvfqx" path="res://game/scenes/items/small_item_ui.tscn" id="2_b8hqy"]
 [ext_resource type="Script" path="res://game/scenes/slot.gd" id="2_dbu28"]
-[ext_resource type="PackedScene" uid="uid://c8rasa4dv6w0b" path="res://game/scenes/medium_item_ui.tscn" id="3_xrgv7"]
-[ext_resource type="PackedScene" uid="uid://cldypikdnvnf8" path="res://game/scenes/large_item_ui.tscn" id="4_vv7y0"]
+[ext_resource type="PackedScene" uid="uid://c8rasa4dv6w0b" path="res://game/scenes/items/medium_item_ui.tscn" id="3_xrgv7"]
+[ext_resource type="PackedScene" uid="uid://cldypikdnvnf8" path="res://game/scenes/items/large_item_ui.tscn" id="4_vv7y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho6ib"]
 size = Vector2(100, 100)
@@ -62,7 +62,6 @@ offset_right = 450.0
 offset_bottom = 300.0
 
 [node name="MediumItemUI2" parent="CanvasLayer/Slot" instance=ExtResource("3_xrgv7")]
-visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
@@ -82,7 +81,6 @@ offset_right = 1050.0
 offset_bottom = 300.0
 
 [node name="LargeItemUI" parent="CanvasLayer/Slot" instance=ExtResource("4_vv7y0")]
-visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0

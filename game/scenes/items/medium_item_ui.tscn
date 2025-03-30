@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8rasa4dv6w0b"]
+[gd_scene load_steps=3 format=3 uid="uid://c8rasa4dv6w0b"]
 
-[ext_resource type="PackedScene" uid="uid://caa7fgruxr5xu" path="res://game/scenes/item_visuals.tscn" id="1_hd8xd"]
+[ext_resource type="Script" path="res://game/scenes/items/item_ui.gd" id="1_g1rmb"]
+[ext_resource type="PackedScene" uid="uid://caa7fgruxr5xu" path="res://game/scenes/items/item_visuals.tscn" id="1_hd8xd"]
 
 [node name="MediumItemUI" type="Control"]
 custom_minimum_size = Vector2(300, 300)
@@ -12,6 +13,8 @@ offset_right = -1620.0
 offset_bottom = -780.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g1rmb")
+item_size = 2
 
 [node name="ItemVisuals" parent="." instance=ExtResource("1_hd8xd")]
 layout_mode = 1

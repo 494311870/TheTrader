@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cldypikdnvnf8"]
+[gd_scene load_steps=3 format=3 uid="uid://cldypikdnvnf8"]
 
-[ext_resource type="PackedScene" uid="uid://caa7fgruxr5xu" path="res://game/scenes/item_visuals.tscn" id="1_boftb"]
+[ext_resource type="Script" path="res://game/scenes/items/item_ui.gd" id="1_4yuem"]
+[ext_resource type="PackedScene" uid="uid://caa7fgruxr5xu" path="res://game/scenes/items/item_visuals.tscn" id="1_boftb"]
 
 [node name="LargeItemUI" type="Control"]
 custom_minimum_size = Vector2(450, 300)
@@ -12,6 +13,8 @@ offset_right = -1470.0
 offset_bottom = -780.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4yuem")
+item_size = 3
 
 [node name="ItemVisuals" parent="." instance=ExtResource("1_boftb")]
 offset_right = 450.0
