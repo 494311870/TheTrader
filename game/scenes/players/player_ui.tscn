@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxy63pkp6pbxb"]
+[gd_scene load_steps=7 format=3 uid="uid://dxy63pkp6pbxb"]
 
 [ext_resource type="Script" path="res://game/scenes/players/player_ui.gd" id="1_xrdcy"]
 [ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="2_ynx73"]
 [ext_resource type="Texture2D" uid="uid://cxybba01no272" path="res://game/art/icons/pouch.png" id="3_snx1e"]
+[ext_resource type="Texture2D" uid="uid://ckdvb3us43wur" path="res://game/art/icons/token_add.png" id="4_dnyx4"]
+[ext_resource type="Texture2D" uid="uid://b88l08q7oini8" path="res://game/art/icons/tokens.png" id="5_kf1w5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve4tf"]
 
@@ -57,3 +59,41 @@ mouse_filter = 2
 texture = ExtResource("3_snx1e")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(1, 0.843137, 0, 1)
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_bottom = 138.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_dnyx4")
+
+[node name="IncomeLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "80"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_kf1w5")
+
+[node name="CoinLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "80"
+vertical_alignment = 1

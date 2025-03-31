@@ -25,6 +25,7 @@ signal stats_changed
 @export var price: int
 @export var tags: Array[ItemTag]
 
+var id: String : get = _get_id
 var id_in_slot: int
 var owner: SlotStats
 
@@ -32,6 +33,9 @@ var owner: SlotStats
 func create_instance() -> ItemStats:
 	var instance: ItemStats = duplicate()
 	return instance
+
+func _get_id() -> String:
+	return name	# TODO: implement
 
 
 func has_tag(tag: ItemTag) -> bool:

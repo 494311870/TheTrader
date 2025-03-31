@@ -4,6 +4,7 @@ extends Control
 @export var stats: ItemStats: set = _set_stats
 
 @onready var icon: TextureRect = %Icon
+@onready var price_label: Label = %PriceLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,10 +15,10 @@ func _ready():
 func _set_stats(value: ItemStats) -> void:
 	if stats == value:
 		return
-	
+
 	if stats != null:
 		stats.stats_changed.disconnect(update_stats)
-	
+
 	stats = value
 
 	if not stats.stats_changed.is_connected(update_stats):
@@ -27,7 +28,10 @@ func _set_stats(value: ItemStats) -> void:
 
 
 func update_stats() -> void:
-	pass
+	if not is_node_ready():
+		await ready
+
+	price_label.text = str(stats.price)
 
 
 func update_item() -> void:

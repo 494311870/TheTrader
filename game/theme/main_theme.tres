@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c6m4pi2puf5iu"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c6m4pi2puf5iu"]
 
 [ext_resource type="Texture2D" uid="uid://dejl1o244lx53" path="res://game/art/ui/button_1.png" id="1_a16gj"]
+[ext_resource type="FontFile" uid="uid://b76sudveldl8t" path="res://game/art/fonts/NotoSerifSC-VF.ttf" id="2_vp36t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx18e"]
 texture = ExtResource("1_a16gj")
@@ -42,8 +43,11 @@ texture_margin_bottom = 40.0
 modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [resource]
+default_font_size = 36
 Button/styles/disabled = SubResource("StyleBoxTexture_tx18e")
 Button/styles/focus = SubResource("StyleBoxTexture_enfm1")
 Button/styles/hover = SubResource("StyleBoxTexture_x5cbv")
 Button/styles/normal = SubResource("StyleBoxTexture_j502c")
 Button/styles/pressed = SubResource("StyleBoxTexture_s7ho1")
+TextLabel/base_type = &"Label"
+TextLabel/fonts/font = ExtResource("2_vp36t")

@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://caa7fgruxr5xu"]
+[gd_scene load_steps=7 format=3 uid="uid://caa7fgruxr5xu"]
 
 [ext_resource type="Script" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
 [ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/ui/mask.png" id="2_b3lv5"]
 [ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/items/lighter.png" id="3_6qtoy"]
-[ext_resource type="Texture2D" uid="uid://kftu2stv3ixm" path="res://game/art/border_1.png" id="3_ocng2"]
+[ext_resource type="Texture2D" uid="uid://be218ps2pf3jg" path="res://game/art/borders/silver.png" id="4_vljbd"]
+[ext_resource type="Texture2D" uid="uid://b08noi1mvhdwj" path="res://game/art/icons/tag.png" id="5_p4ffl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4ytf"]
+content_margin_left = 35.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_p4ffl")
+texture_margin_left = 32.0
+texture_margin_right = 32.0
 
 [node name="ItemVisuals" type="Control"]
 layout_mode = 3
@@ -21,9 +31,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 18
+theme_override_constants/margin_bottom = 12
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
 clip_children = 1
@@ -54,8 +64,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ocng2")
-patch_margin_left = 40
-patch_margin_top = 40
-patch_margin_right = 40
-patch_margin_bottom = 40
+texture = ExtResource("4_vljbd")
+patch_margin_left = 50
+patch_margin_top = 50
+patch_margin_right = 50
+patch_margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 223.0
+offset_right = 83.0
+offset_bottom = 267.0
+rotation = -0.174533
+theme_override_styles/panel = SubResource("StyleBoxTexture_p4ytf")
+
+[node name="PriceLabel" type="Label" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.360784, 0.25098, 0.2, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "18"
