@@ -4,11 +4,11 @@ extends Control
 const Small_Item_UI  := preload("res://game/scenes/items/small_item_ui.tscn")
 const Medium_Item_UI := preload("res://game/scenes/items/medium_item_ui.tscn")
 const Large_Item_UI  := preload("res://game/scenes/items/large_item_ui.tscn")
-@export var slot_stats: SlotStats: set = _set_stats
-@export var slot_quantity: int = 10
+@export var stats: SlotStats: set = _set_stats
 @export var slot_size: Vector2 = Vector2(150, 300)
-@export var start_position: Vector2
 @export var debugShape: CollisionShape2D
+
+var _start_position: Vector2
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,22 +17,19 @@ func _ready():
 
 
 func _set_stats(value: SlotStats) -> void:
-	if slot_stats == value:
+	if stats == value:
 		return
 
-	if slot_stats != null:
-		slot_stats.stats_changed.disconnect(update_stats)
+	if stats != null:
+		stats.stats_changed.disconnect(update_stats)
 
-	slot_stats = value
+	stats = value
 
-	if slot_stats == null:
+	if stats == null:
 		return
 
-	if not slot_stats.stats_changed.is_connected(update_stats):
-		slot_stats.stats_changed.connect(update_stats)
-
-	# debug call
-	slot_stats.set_up()
+	if not stats.stats_changed.is_connected(update_stats):
+		stats.stats_changed.connect(update_stats)
 
 	update_slot()
 
@@ -44,9 +41,13 @@ func update_slot() -> void:
 	for child in self.get_children():
 		child.queue_free()
 
-	for item in slot_stats.items:
+	for item in stats.items:
 		var item_ui: ItemUI = _create_item_ui(item)
 		add_child(item_ui)
+
+	var require_size: Vector2 = stats.slot_quantity * slot_size
+	var start_x: float        = self.size.x / 2 - require_size.x / 2
+	_start_position = Vector2(start_x, 0)
 
 	update_stats()
 
@@ -77,27 +78,21 @@ func _get_item_ui_scene(item_size: ItemStats.ItemSize) -> PackedScene:
 
 func reset_slots() -> void:
 	_sort_children()
-	slot_stats.remap_items_id()
+	stats.remap_items_id()
 
 
 func remove_item(item: ItemUI) -> void:
-	slot_stats.remove_item(item.stats)
-
-
-#	var start_index: int = _slots.find(item.item_index)
-#	for i in range(0, item.item_size):
-#		_slots[start_index + i] = -1
+	stats.remove_item(item.stats)
 
 
 func get_start_slot_index(item: ItemUI) -> int:
-	#	return _slots.find(item.item_index)
-	return slot_stats.get_start_index(item.stats)
+	return stats.get_start_index(item.stats)
 
 
 func put_item(item: ItemUI, to_index: int) ->void:
 	print("put_item: %s..%s" % [to_index, item.item_size])
 	item.reparent(self)
-	slot_stats.put_item(item.stats, to_index)
+	stats.put_item(item.stats, to_index)
 
 
 func _sort_children() -> void:
@@ -117,8 +112,7 @@ func update_items_position() -> void:
 		if not child is ItemUI:
 			continue
 
-		#		var slot_intex := _slots.find(child.item_index)
-		var slot_intex := slot_stats.get_start_index(child.stats)
+		var slot_intex := stats.get_start_index(child.stats)
 		child.position = _calculate_position(slot_intex)
 
 
@@ -138,8 +132,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	var target_position   = at_position - data.offset
 	var slot_index: int   = _find_nearest_index(target_position)
 
-	#	var can_insert := _has_enough_space_after(slot_index, drop_item)
-	var can_insert := slot_stats.has_enough_space_after(slot_index, drop_item.stats)
+	var can_insert := stats.has_enough_space_after(slot_index, drop_item.stats)
 
 	if can_insert:
 		return true
@@ -147,9 +140,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if drop_item.get_parent() == self:
 		return false
 
-	# can swap
-	#	return _has_contiguous_space_after(slot_index, drop_item)
-	return slot_stats.has_contiguous_space_after(slot_index, drop_item.stats)
+	return stats.has_contiguous_space_after(slot_index, drop_item.stats)
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
@@ -160,25 +151,19 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var slot_index: int   = _find_nearest_index(target_position)
 
 	if origin_slot == target_slot:
-		# delete drop_item
-		#		remove_item(drop_item)
 		_change_location(drop_item, slot_index)
 	else:
-		if slot_stats.has_enough_space_after(slot_index, drop_item.stats):
-			# insert
-			#			drop_item.item_index = _get_next_item_index()
-			#			origin_slot.reset_slots()
+		if stats.has_enough_space_after(slot_index, drop_item.stats):
 			_change_location(drop_item, slot_index)
 		else:
-			#swap
 			_swap_items(slot_index, drop_item)
 
 
 func _change_location(drop_item: ItemUI, to_index: int) -> void:
 	if drop_item.get_parent() != self:
 		drop_item.reparent(self)
-		
-	slot_stats.insert_item(drop_item.stats, to_index)
+
+	stats.insert_item(drop_item.stats, to_index)
 	update_items_position()
 	reset_slots()
 	print("index : %s" % to_index)
@@ -217,7 +202,7 @@ func _get_items(start_index: int, end_index: int) -> Array[ItemUI]:
 
 	var current_index: int = start_index
 	while current_index < end_index:
-		var item_stats: ItemStats = slot_stats.get_item(current_index)
+		var item_stats: ItemStats = stats.get_item(current_index)
 		if item_stats != null:
 			var item_ui: ItemUI = _get_item(item_stats)
 			result.append(item_ui)
@@ -241,17 +226,19 @@ func _get_item(item_stats: ItemStats) -> ItemUI:
 
 
 func _find_nearest_index(at_position: Vector2) -> int:
-	if at_position.x < start_position.x:
+	if at_position.x < _start_position.x:
 		return 0
 
-	if at_position.x > start_position.x + slot_quantity * slot_size.x:
+	var slot_quantity: int = stats.slot_quantity
+
+	if at_position.x > _start_position.x + slot_quantity * slot_size.x:
 		return slot_quantity - 1
 
-	return roundi((at_position.x - start_position.x) / slot_size.x)
+	return roundi((at_position.x - _start_position.x) / slot_size.x)
 
 
 func _calculate_position(index: int) -> Vector2:
-	return start_position + Vector2(index * slot_size.x, 0)
+	return _start_position + Vector2(index * slot_size.x, 0)
 
 
 

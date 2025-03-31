@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v0s73xkv148o"
-path="res://.godot/imported/1743318391841.png-35dd6f329e3948e3f62671f016e27bdb.ctex"
+uid="uid://b56g5btsax6nw"
+path="res://.godot/imported/arrow_rotate.png-93b3b1d06b12cf4f0cfa3de56b1a49c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/1743318391841.png"
-dest_files=["res://.godot/imported/1743318391841.png-35dd6f329e3948e3f62671f016e27bdb.ctex"]
+source_file="res://game/art/icons/arrow_rotate.png"
+dest_files=["res://.godot/imported/arrow_rotate.png-93b3b1d06b12cf4f0cfa3de56b1a49c8.ctex"]
 
 [params]
 

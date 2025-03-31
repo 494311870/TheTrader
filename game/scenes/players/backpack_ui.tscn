@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqgoxwdrv0sej"]
+
+[ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="1_f6sas"]
+[ext_resource type="Script" path="res://game/scenes/players/backpack_ui.gd" id="1_pkcu3"]
+[ext_resource type="Texture2D" uid="uid://ok44g81tvsr6" path="res://game/art/borders/1743390594439.png" id="2_3eyak"]
+[ext_resource type="Texture2D" uid="uid://cntkokwr3e84m" path="res://game/art/faces/1743409929246.png" id="3_e3axa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3rtm"]
+content_margin_left = 14.0
+content_margin_top = 13.0
+content_margin_right = 13.0
+content_margin_bottom = 15.0
+texture = ExtResource("2_3eyak")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+
+[node name="BackpackUI" type="Control"]
+custom_minimum_size = Vector2(0, 580)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 65.0
+offset_right = 1920.0
+offset_bottom = 645.0
+script = ExtResource("1_pkcu3")
+
+[node name="SlotUI" parent="." instance=ExtResource("1_f6sas")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t3rtm")
+
+[node name="Art" type="TextureRect" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_e3axa")
+expand_mode = 1

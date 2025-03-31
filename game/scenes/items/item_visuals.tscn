@@ -1,21 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://caa7fgruxr5xu"]
+[gd_scene load_steps=5 format=3 uid="uid://caa7fgruxr5xu"]
 
-[ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/mask.png" id="1_0ovl6"]
 [ext_resource type="Script" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
-[ext_resource type="Texture2D" uid="uid://v0s73xkv148o" path="res://game/art/1743318391841.png" id="2_jc8dh"]
-[ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/1743317745430.png" id="3_apgko"]
-[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_iwkb7"]
+[ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/ui/mask.png" id="2_b3lv5"]
+[ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/items/lighter.png" id="3_6qtoy"]
 [ext_resource type="Texture2D" uid="uid://kftu2stv3ixm" path="res://game/art/border_1.png" id="3_ocng2"]
-
-[sub_resource type="Resource" id="Resource_g70im"]
-script = ExtResource("3_iwkb7")
-art = ExtResource("2_jc8dh")
-name = ""
-description = ""
-item_size = 1
-level = 0
-price = 0
-tags = Array[Resource("res://game/domain/item_tag.gd")]([])
 
 [node name="ItemVisuals" type="Control"]
 layout_mode = 3
@@ -24,7 +12,6 @@ offset_right = 150.0
 offset_bottom = 300.0
 mouse_filter = 2
 script = ExtResource("1_mhn8x")
-stats = SubResource("Resource_g70im")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -42,7 +29,7 @@ theme_override_constants/margin_bottom = 18
 clip_children = 1
 clip_contents = true
 layout_mode = 2
-texture = ExtResource("1_0ovl6")
+texture = ExtResource("2_b3lv5")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
@@ -56,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_apgko")
+texture = ExtResource("3_6qtoy")
 expand_mode = 1
 
 [node name="Border" type="NinePatchRect" parent="."]

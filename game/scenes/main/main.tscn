@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://2gy51p43a8l1"]
+
+[ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
+[ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
+[ext_resource type="PackedScene" uid="uid://dupn0g21i76x7" path="res://game/scenes/traders/trader_ui.tscn" id="2_uy2fy"]
+[ext_resource type="Resource" uid="uid://blo3m866l3efq" path="res://game/contents/traders/trader.tres" id="3_x1a5e"]
+[ext_resource type="Script" path="res://game/scenes/main/trader_handler.gd" id="4_8fvy6"]
+[ext_resource type="PackedScene" uid="uid://dfe5qf80v025v" path="res://game/scenes/main/leave_button.tscn" id="4_q4xem"]
+[ext_resource type="PackedScene" uid="uid://mj8uww18p5dy" path="res://game/scenes/main/refresh_button.tscn" id="5_nxpua"]
+[ext_resource type="Script" path="res://game/domain/item_pool.gd" id="5_ov3pa"]
+[ext_resource type="Script" path="res://game/scenes/main/player_handler.gd" id="6_6y3je"]
+[ext_resource type="Resource" uid="uid://cojiqrr88vkdu" path="res://game/contents/characters/player.tres" id="7_fn1df"]
+[ext_resource type="PackedScene" uid="uid://dxy63pkp6pbxb" path="res://game/scenes/players/player_ui.tscn" id="7_t02in"]
+[ext_resource type="PackedScene" uid="uid://dqgoxwdrv0sej" path="res://game/scenes/players/backpack_ui.tscn" id="8_3lbgv"]
+
+[sub_resource type="Resource" id="Resource_lpxqp"]
+script = ExtResource("5_ov3pa")
+_dirPath = "res://game/contents/items"
+_pool = Array[Resource("res://game/domain/item_stats.gd")]([])
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1)
+position = Vector2(960, 540)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_yyioj")
+metadata/_edit_lock_ = true
+
+[node name="Handlers" type="Node" parent="."]
+
+[node name="MainHandler" type="Node" parent="Handlers"]
+script = ExtResource("2_q014j")
+trader_stats = ExtResource("3_x1a5e")
+
+[node name="TraderHandler" type="Node" parent="Handlers"]
+script = ExtResource("4_8fvy6")
+item_pool = SubResource("Resource_lpxqp")
+
+[node name="PlayerHandler" type="Node" parent="Handlers"]
+script = ExtResource("6_6y3je")
+character_template = ExtResource("7_fn1df")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TraderUI" parent="CanvasLayer" instance=ExtResource("2_uy2fy")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+offset_top = 65.0
+offset_right = 1920.0
+offset_bottom = 645.0
+grow_horizontal = 1
+
+[node name="PlayerUI" parent="CanvasLayer" instance=ExtResource("7_t02in")]
+unique_name_in_owner = true
+
+[node name="BackpackUI" parent="CanvasLayer" instance=ExtResource("8_3lbgv")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LeaveButton" parent="CanvasLayer" instance=ExtResource("4_q4xem")]
+
+[node name="RefreshButton" parent="CanvasLayer" instance=ExtResource("5_nxpua")]
+
+[connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]
+[connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/BackpackUI" method="_on_backpack_clicked"]

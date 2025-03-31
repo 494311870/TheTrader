@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://cdv83ab1lk45b"]
 
 [ext_resource type="Script" path="res://game/domain/item_stats.gd" id="1_eyv3b"]
-[ext_resource type="Texture2D" uid="uid://v0s73xkv148o" path="res://game/art/1743318391841.png" id="1_pk8wc"]
+[ext_resource type="Texture2D" uid="uid://v0s73xkv148o" path="res://game/art/items/1743318391841.png" id="1_pk8wc"]
 
 [resource]
 script = ExtResource("1_eyv3b")

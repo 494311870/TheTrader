@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxy63pkp6pbxb"]
+
+[ext_resource type="Script" path="res://game/scenes/players/player_ui.gd" id="1_xrdcy"]
+[ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="2_ynx73"]
+[ext_resource type="Texture2D" uid="uid://cxybba01no272" path="res://game/art/icons/pouch.png" id="3_snx1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve4tf"]
+
+[node name="PlayerUI" type="Control"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_xrdcy")
+
+[node name="SlotUI" parent="." instance=ExtResource("2_ynx73")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_vertical = 1
+
+[node name="Backpack" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -170.0
+offset_right = 170.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ve4tf")
+
+[node name="BackpackButton" type="Button" parent="Backpack"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Backpack"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_snx1e")
+expand_mode = 1
+stretch_mode = 5

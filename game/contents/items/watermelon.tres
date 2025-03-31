@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://ywgfxf1kqbgb"]
+
+[ext_resource type="Texture2D" uid="uid://bd4h8blh51lea" path="res://game/art/items/watermelon.png" id="1_s3kyf"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_p10ip"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_h1wdd"]
+
+[resource]
+script = ExtResource("2_p10ip")
+art = ExtResource("1_s3kyf")
+name = "西瓜"
+description = ""
+item_size = 2
+level = 0
+price = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_h1wdd")])

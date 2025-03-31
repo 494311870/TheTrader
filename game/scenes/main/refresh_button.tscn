@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://mj8uww18p5dy"]
+
+[ext_resource type="Texture2D" uid="uid://b56g5btsax6nw" path="res://game/art/icons/arrow_rotate.png" id="1_sepl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve4tf"]
+
+[node name="RefreshButton" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 386.0
+offset_top = 92.0
+offset_right = 536.0
+offset_bottom = 242.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ve4tf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_sepl8")
+expand_mode = 1
+stretch_mode = 5

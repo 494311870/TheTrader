@@ -1,20 +1,29 @@
 class_name SlotStats
 extends Resource
 
+const Max_Slot_Quantity := 10
 signal stats_changed
-@export var slot_quantity: int = 10
+@export_range(1, Max_Slot_Quantity, 1)
+var slot_quantity: int = 10
 @export var items: Array[ItemStats] = []
 
 var _slots      := PackedInt32Array()
 var _slots_temp := PackedInt32Array()
 
+func set_up_with_empty()-> void:
+	_slots.resize(slot_quantity)
+	_slots.fill(-1)
 
-func set_up()-> void:
+
+func set_up_with_items(initial_items: Array[ItemStats])-> void:
+	self.items.clear()
+	self.items.append_array(initial_items)
+	_shrink()
 	_slots.resize(slot_quantity)
 	_slots.fill(-1)
 
 	var slot_index := 0
-	for item: ItemStats in items:
+	for item: ItemStats in self.items:
 		item.owner = self
 		item.id_in_slot = _get_next_item_id()
 		for i in range(0, item.item_size):
@@ -22,8 +31,19 @@ func set_up()-> void:
 			slot_index += 1
 
 
-func reset() -> void:
-	pass
+		
+func _shrink() -> void:
+	var quantity: int = 0
+	for item in items:
+		quantity += item.item_size
+
+	slot_quantity = quantity
+
+
+func clear() -> void:
+	self.items.clear()
+	_slots.resize(slot_quantity)
+	_slots.fill(-1)
 
 
 func remap_items_id() -> void:

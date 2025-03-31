@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="TheTrader"
 
+[gui]
+
+theme/custom="res://game/theme/main_theme.tres"
+
 [rendering]
 
 renderer/rendering_method="mobile"

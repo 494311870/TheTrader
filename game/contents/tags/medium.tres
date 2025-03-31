@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ItemTag" load_steps=2 format=3 uid="uid://b6o7e7p4yteuc"]
+
+[ext_resource type="Script" path="res://game/domain/item_tag.gd" id="1_1pmix"]
+
+[resource]
+script = ExtResource("1_1pmix")
+name = ""

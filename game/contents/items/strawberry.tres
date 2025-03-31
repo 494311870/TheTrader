@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://caqyqqc43ve5w"]
+
+[ext_resource type="Texture2D" uid="uid://bid7uqn4apkgm" path="res://game/art/items/strawberry.png" id="1_4obxy"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_fkifa"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_h1eg2"]
+
+[resource]
+script = ExtResource("2_fkifa")
+art = ExtResource("1_4obxy")
+name = "草莓"
+description = ""
+item_size = 1
+level = 0
+price = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_h1eg2")])

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bajadm2nabg8r"
-path="res://.godot/imported/background.png-7d035ce85e734e3f082afb86069ddb53.ctex"
+uid="uid://cxybba01no272"
+path="res://.godot/imported/pouch.png-3be2199a8efe11957ac9cdcc16eb6db3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/background.png"
-dest_files=["res://.godot/imported/background.png-7d035ce85e734e3f082afb86069ddb53.ctex"]
+source_file="res://game/art/icons/pouch.png"
+dest_files=["res://.godot/imported/pouch.png-3be2199a8efe11957ac9cdcc16eb6db3.ctex"]
 
 [params]
 

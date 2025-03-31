@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6yiasf0qgok4"]
+
+[ext_resource type="Script" path="res://game/scenes/slots/slot_ui.gd" id="1_ennk5"]
+[ext_resource type="Script" path="res://game/scenes/slots/slot.gd" id="2_ux1qj"]
+[ext_resource type="Texture2D" uid="uid://ku7a2mnr7d7x" path="res://game/art/pictures/desktop.png" id="2_vsvy1"]
+[ext_resource type="PackedScene" uid="uid://dvhqwfe8lvfqx" path="res://game/scenes/items/small_item_ui.tscn" id="4_d3t4o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_volvv"]
+texture = ExtResource("2_vsvy1")
+texture_margin_left = 64.0
+texture_margin_top = 50.0
+texture_margin_right = 64.0
+texture_margin_bottom = 50.0
+
+[node name="SlotUI" type="Control"]
+custom_minimum_size = Vector2(1500, 340)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ennk5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -770.0
+offset_top = -170.0
+offset_right = 770.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_volvv")
+
+[node name="Slot" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1500, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ux1qj")
+
+[node name="SmallItemUI" parent="Slot" instance=ExtResource("4_d3t4o")]
+layout_mode = 1
+offset_left = 483.0
+offset_top = -1.0
+offset_right = -1337.0
+offset_bottom = -1.0

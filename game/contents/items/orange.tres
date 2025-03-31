@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://c2m3ja8832g1o"]
+
+[ext_resource type="Texture2D" uid="uid://bh1tgsm20k51o" path="res://game/art/items/orange.png" id="1_2kqni"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_1g283"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_fa605"]
+
+[resource]
+script = ExtResource("2_1g283")
+art = ExtResource("1_2kqni")
+name = "橙子"
+description = ""
+item_size = 1
+level = 0
+price = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_fa605")])
