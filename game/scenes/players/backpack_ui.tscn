@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ok44g81tvsr6" path="res://game/art/borders/1743390594439.png" id="2_3eyak"]
 [ext_resource type="Texture2D" uid="uid://cntkokwr3e84m" path="res://game/art/faces/1743409929246.png" id="3_e3axa"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3rtm"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h86tj"]
 content_margin_left = 14.0
 content_margin_top = 13.0
 content_margin_right = 13.0
@@ -25,30 +25,29 @@ offset_right = 1920.0
 offset_bottom = 645.0
 script = ExtResource("1_pkcu3")
 
-[node name="SlotUI" parent="." instance=ExtResource("1_f6sas")]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_bottom = 0.0
-grow_vertical = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 1920.0
+offset_bottom = 570.0
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
-offset_top = 20.0
-offset_right = 100.0
-offset_bottom = 220.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_t3rtm")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h86tj")
 
-[node name="Art" type="TextureRect" parent="PanelContainer"]
+[node name="Art" type="TextureRect" parent="VBoxContainer/CenterContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_e3axa")
 expand_mode = 1
+
+[node name="SlotUI" parent="VBoxContainer" instance=ExtResource("1_f6sas")]
+unique_name_in_owner = true
+layout_mode = 2

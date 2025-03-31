@@ -3,7 +3,7 @@ extends Control
 
 @export var stats: TraderStats: set = _set_stats
 
-@onready var slot_ui: SlotUI = $SlotUI
+@onready var slot_ui: SlotUI = %SlotUI
 @onready var trader_art: TextureRect = %TraderArt
 
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfe5qf80v025v"]
+
+[ext_resource type="Texture2D" uid="uid://brmmrxn2jejrw" path="res://game/art/icons/arrow_right_curve.png" id="1_8udia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve4tf"]
+
+[node name="LeaveButton" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 1436.0
+offset_top = 83.0
+offset_right = 1586.0
+offset_bottom = 233.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ve4tf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_8udia")
+expand_mode = 1
+stretch_mode = 5

@@ -1,14 +1,49 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c6m4pi2puf5iu"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c6m4pi2puf5iu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob3rc"]
+[ext_resource type="Texture2D" uid="uid://dejl1o244lx53" path="res://game/art/ui/button_1.png" id="1_a16gj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y82os"]
-bg_color = Color(0.212305, 0.212305, 0.212305, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx18e"]
+texture = ExtResource("1_a16gj")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 0.501961)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjn6s"]
-bg_color = Color(0.385493, 0.385493, 0.385492, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enfm1"]
+texture = ExtResource("1_a16gj")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5cbv"]
+texture = ExtResource("1_a16gj")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j502c"]
+texture = ExtResource("1_a16gj")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s7ho1"]
+texture = ExtResource("1_a16gj")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+modulate_color = Color(0.784314, 0.784314, 0.784314, 1)
 
 [resource]
-Button/styles/hover = SubResource("StyleBoxFlat_ob3rc")
-Button/styles/normal = SubResource("StyleBoxFlat_y82os")
-Button/styles/pressed = SubResource("StyleBoxFlat_jjn6s")
+Button/styles/disabled = SubResource("StyleBoxTexture_tx18e")
+Button/styles/focus = SubResource("StyleBoxTexture_enfm1")
+Button/styles/hover = SubResource("StyleBoxTexture_x5cbv")
+Button/styles/normal = SubResource("StyleBoxTexture_j502c")
+Button/styles/pressed = SubResource("StyleBoxTexture_s7ho1")

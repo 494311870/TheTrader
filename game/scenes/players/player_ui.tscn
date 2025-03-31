@@ -43,7 +43,15 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ve4tf")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Backpack"]
+[node name="MarginContainer" type="MarginContainer" parent="Backpack"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Backpack/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_snx1e")

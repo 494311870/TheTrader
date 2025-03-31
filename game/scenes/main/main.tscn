@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=12 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
 [ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
 [ext_resource type="PackedScene" uid="uid://dupn0g21i76x7" path="res://game/scenes/traders/trader_ui.tscn" id="2_uy2fy"]
 [ext_resource type="Resource" uid="uid://blo3m866l3efq" path="res://game/contents/traders/trader.tres" id="3_x1a5e"]
 [ext_resource type="Script" path="res://game/scenes/main/trader_handler.gd" id="4_8fvy6"]
-[ext_resource type="PackedScene" uid="uid://dfe5qf80v025v" path="res://game/scenes/main/leave_button.tscn" id="4_q4xem"]
-[ext_resource type="PackedScene" uid="uid://mj8uww18p5dy" path="res://game/scenes/main/refresh_button.tscn" id="5_nxpua"]
 [ext_resource type="Script" path="res://game/domain/item_pool.gd" id="5_ov3pa"]
 [ext_resource type="Script" path="res://game/scenes/main/player_handler.gd" id="6_6y3je"]
 [ext_resource type="Resource" uid="uid://cojiqrr88vkdu" path="res://game/contents/characters/player.tres" id="7_fn1df"]
@@ -58,10 +56,6 @@ unique_name_in_owner = true
 [node name="BackpackUI" parent="CanvasLayer" instance=ExtResource("8_3lbgv")]
 unique_name_in_owner = true
 visible = false
-
-[node name="LeaveButton" parent="CanvasLayer" instance=ExtResource("4_q4xem")]
-
-[node name="RefreshButton" parent="CanvasLayer" instance=ExtResource("5_nxpua")]
 
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]
 [connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/BackpackUI" method="_on_backpack_clicked"]

@@ -3,7 +3,7 @@ extends Control
 
 @export var stats: SlotStats: set = _set_stats
 
-@onready var slot_ui: SlotUI = $SlotUI
+@onready var slot_ui: SlotUI = %SlotUI
 @onready var art: TextureRect = %Art
 
 # Called when the node enters the scene tree for the first time.

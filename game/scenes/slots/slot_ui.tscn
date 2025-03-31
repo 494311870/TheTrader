@@ -24,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ennk5")
+metadata/disable_drop = false
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

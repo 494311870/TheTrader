@@ -132,6 +132,10 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	var target_position   = at_position - data.offset
 	var slot_index: int   = _find_nearest_index(target_position)
 
+	if drop_item.get_parent() != self:
+		if owner.get_meta("disable_drop"):
+			return false
+
 	var can_insert := stats.has_enough_space_after(slot_index, drop_item.stats)
 
 	if can_insert:
