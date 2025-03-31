@@ -1,6 +1,10 @@
 class_name ItemUI
 extends Control
 
+enum FailCode{
+	Not_Enough_Coin = 0
+}
+signal drag_failed(fail_code: FailCode)
 @export var item_size: ItemStats.ItemSize
 @export var stats: ItemStats: set = _set_stats
 
@@ -21,6 +25,10 @@ func _notification(what: int) -> void:
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
+	if stats.coin_not_enough:
+		drag_failed.emit(FailCode.Not_Enough_Coin)
+		return null
+
 	_is_dragging = true
 	var item: Control = duplicate()
 	item.position = -at_position
@@ -37,10 +45,10 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 
 func _set_stats(value: ItemStats) -> void:
 	stats = value
-	
+
 	if not is_node_ready():
 		await ready
-		
+
 	visuals.stats = value
 	
 	

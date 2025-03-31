@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_r0jl3")
-coin = 8
+coin = 5
 income = 5

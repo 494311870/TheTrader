@@ -66,3 +66,20 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 layout_mode = 2
 metadata/disable_drop = true
+
+[node name="TipContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 67.0
+offset_right = 1356.0
+offset_bottom = 160.0
+
+[node name="TipLabel" type="Label" parent="TipContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 47)
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+theme_override_font_sizes/font_size = 64
+text = "你钱不够"

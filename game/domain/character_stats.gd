@@ -21,6 +21,11 @@ func create_instance() -> CharacterStats:
 
 	return instance
 
+
+func is_owner(item: ItemStats) -> bool:
+	return item.owner == desktop or item.owner == backpack
+
+
 func find_same_item(id: String) -> ItemStats:
 	for item in desktop.items:
 		if item.id == id:

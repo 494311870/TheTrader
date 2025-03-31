@@ -50,4 +50,5 @@ Button/styles/hover = SubResource("StyleBoxTexture_x5cbv")
 Button/styles/normal = SubResource("StyleBoxTexture_j502c")
 Button/styles/pressed = SubResource("StyleBoxTexture_s7ho1")
 TextLabel/base_type = &"Label"
+TextLabel/font_sizes/font_size = 32
 TextLabel/fonts/font = ExtResource("2_vp36t")

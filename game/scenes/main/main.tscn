@@ -68,4 +68,5 @@ script = ExtResource("12_bc1jl")
 
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]
 [connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/BackpackUI" method="_on_backpack_clicked"]
+[connection signal="before_drop_item" from="CanvasLayer/PlayerUI" to="Handlers/PlayerHandler" method="_buy_item"]
 [connection signal="sell_requested" from="CanvasLayer/Seller" to="Handlers/PlayerHandler" method="_sell_item"]

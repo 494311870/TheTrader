@@ -15,8 +15,6 @@ func _ready() -> void:
 	_player_ui.stats = _character_stats
 	_backpack_ui.stats = _character_stats.backpack
 	_backpack_ui.hide()
-	
-
 
 func _sell_item(item_ui: ItemUI) -> void:
 	var item: ItemStats = item_ui.stats
@@ -26,4 +24,13 @@ func _sell_item(item_ui: ItemUI) -> void:
 	item.owner.remove_item(item)
 
 	_character_stats.gain_coins(item.price)
-	
+
+func _buy_item(item_ui: ItemUI) ->void:
+	var item_stats: ItemStats = item_ui.stats
+	if _character_stats.is_owner(item_stats):
+		return
+
+	# buy
+	_character_stats.lose_coins(item_stats.price)
+	item_stats.price /= 2
+	item_stats.coin_not_enough = false

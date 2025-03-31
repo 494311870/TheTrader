@@ -4,6 +4,8 @@ extends Control
 const Small_Item_UI  := preload("res://game/scenes/items/small_item_ui.tscn")
 const Medium_Item_UI := preload("res://game/scenes/items/medium_item_ui.tscn")
 const Large_Item_UI  := preload("res://game/scenes/items/large_item_ui.tscn")
+signal before_drop_item(item: ItemUI)
+signal drag_item_failed(fail_code: ItemUI.FailCode)
 @export var stats: SlotStats: set = _set_stats
 @export var slot_size: Vector2 = Vector2(150, 300)
 @export var debugShape: CollisionShape2D
@@ -61,6 +63,7 @@ func _create_item_ui(item_stats: ItemStats) -> ItemUI:
 	var item_ui_scene: PackedScene = _get_item_ui_scene(item_stats.item_size)
 	var item_ui: ItemUI            = item_ui_scene.instantiate() as ItemUI
 	item_ui.stats = item_stats
+	item_ui.drag_failed.connect(func (code): drag_item_failed.emit(code))
 	return item_ui
 
 
@@ -153,6 +156,8 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var drop_item: ItemUI = data.item
 	var target_position   = at_position - data.offset
 	var slot_index: int   = _find_nearest_index(target_position)
+
+	before_drop_item.emit(drop_item)
 
 	if origin_slot == target_slot:
 		_change_location(drop_item, slot_index)
