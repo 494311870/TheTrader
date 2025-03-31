@@ -1,10 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=12 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://bajadm2nabg8r" path="res://game/art/background.png" id="1_3duro"]
 [ext_resource type="PackedScene" uid="uid://dvhqwfe8lvfqx" path="res://game/scenes/items/small_item_ui.tscn" id="2_b8hqy"]
 [ext_resource type="Script" path="res://game/scenes/slot.gd" id="2_dbu28"]
+[ext_resource type="Resource" uid="uid://lkmsh0nhhscs" path="res://game/contents/items/lighter.tres" id="3_86shm"]
 [ext_resource type="PackedScene" uid="uid://c8rasa4dv6w0b" path="res://game/scenes/items/medium_item_ui.tscn" id="3_xrgv7"]
+[ext_resource type="Resource" uid="uid://cdv83ab1lk45b" path="res://game/contents/items/pan.tres" id="4_8shfo"]
 [ext_resource type="PackedScene" uid="uid://cldypikdnvnf8" path="res://game/scenes/items/large_item_ui.tscn" id="4_vv7y0"]
+[ext_resource type="Script" path="res://game/domain/slot_stats.gd" id="5_r6bdd"]
+
+[sub_resource type="Resource" id="Resource_6i5nm"]
+script = ExtResource("5_r6bdd")
+slot_quantity = 10
+items = Array[Resource("res://game/domain/item_stats.gd")]([ExtResource("3_86shm"), ExtResource("4_8shfo")])
+
+[sub_resource type="Resource" id="Resource_gifig"]
+script = ExtResource("5_r6bdd")
+slot_quantity = 2
+items = Array[Resource("res://game/domain/item_stats.gd")]([])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho6ib"]
 size = Vector2(100, 100)
@@ -34,9 +47,7 @@ offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("2_dbu28")
-slot_quantity = null
-slot_size = null
-start_position = null
+slot_stats = SubResource("Resource_6i5nm")
 
 [node name="SmallItemUI" parent="CanvasLayer/Slot" instance=ExtResource("2_b8hqy")]
 layout_mode = 2
@@ -106,9 +117,7 @@ offset_bottom = -605.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("2_dbu28")
-slot_quantity = null
-slot_size = null
-start_position = null
+slot_stats = SubResource("Resource_gifig")
 
 [node name="SmallItemUI" parent="CanvasLayer/Slot2" instance=ExtResource("2_b8hqy")]
 layout_mode = 2

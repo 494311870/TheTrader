@@ -1,15 +1,11 @@
 class_name ItemUI
 extends Control
 
-enum ItemSize{
-	Small = 1,
-	Medium = 2,
-	Large = 3,
-}
+@export var item_size: ItemStats.ItemSize
+@export var stats: ItemStats: set = _set_stats
 
-@export var item_size: ItemSize
+@onready var visuals: ItemVisuals = %ItemVisuals
 
-var item_index: int    = 0
 var _is_dragging: bool = false
 
 
@@ -37,6 +33,15 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	set_drag_preview(preview)
 
 	return {"item": self, "offset": at_position}
+
+
+func _set_stats(value: ItemStats) -> void:
+	stats = value
+	
+	if not is_node_ready():
+		await ready
+		
+	visuals.stats = value
 	
 	
 	

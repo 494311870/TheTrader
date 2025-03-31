@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://lkmsh0nhhscs"]
+
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="1_fwka5"]
+[ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/1743317745430.png" id="1_r6lec"]
+
+[resource]
+script = ExtResource("1_fwka5")
+art = ExtResource("1_r6lec")
+name = "打火机"
+description = ""
+item_size = 1
+level = 0
+price = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([])

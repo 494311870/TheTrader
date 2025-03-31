@@ -17,4 +17,5 @@ script = ExtResource("1_4yuem")
 item_size = 3
 
 [node name="ItemVisuals" parent="." instance=ExtResource("1_boftb")]
+unique_name_in_owner = true
 offset_right = 450.0

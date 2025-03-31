@@ -17,3 +17,4 @@ script = ExtResource("1_yd1qw")
 item_size = 1
 
 [node name="ItemVisuals" parent="." instance=ExtResource("1_7y660")]
+unique_name_in_owner = true

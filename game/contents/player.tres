@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=7 format=3 uid="uid://cojiqrr88vkdu"]
+
+[ext_resource type="Script" path="res://game/domain/slot_stats.gd" id="1_3lmxk"]
+[ext_resource type="Resource" uid="uid://lkmsh0nhhscs" path="res://game/contents/items/lighter.tres" id="1_frqt2"]
+[ext_resource type="Script" path="res://game/domain/player_stats.gd" id="1_r0jl3"]
+[ext_resource type="Resource" uid="uid://cdv83ab1lk45b" path="res://game/contents/items/pan.tres" id="3_ds3u4"]
+
+[sub_resource type="Resource" id="Resource_6wnbi"]
+script = ExtResource("1_3lmxk")
+items = Array[Resource("res://game/domain/item_stats.gd")]([ExtResource("1_frqt2"), ExtResource("1_frqt2")])
+
+[sub_resource type="Resource" id="Resource_nyulf"]
+script = ExtResource("1_3lmxk")
+items = Array[Resource("res://game/domain/item_stats.gd")]([ExtResource("3_ds3u4"), ExtResource("3_ds3u4")])
+
+[resource]
+script = ExtResource("1_r0jl3")
+desktop = SubResource("Resource_nyulf")
+backpack = SubResource("Resource_6wnbi")
+coin = 8
+income = 5
