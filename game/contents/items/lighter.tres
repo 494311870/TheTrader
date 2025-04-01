@@ -12,3 +12,4 @@ item_size = 1
 level = 0
 price = 0
 tags = Array[Resource("res://game/domain/item_tag.gd")]([])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

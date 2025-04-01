@@ -22,6 +22,16 @@ func create_instance() -> CharacterStats:
 	return instance
 
 
+func dispose():
+	for item in desktop.items:
+		item.deactivate_abilities()
+	for item in backpack.items:
+		item.deactivate_abilities()
+		
+	desktop.clear()
+	backpack.clear()
+
+
 func is_owner(item: ItemStats) -> bool:
 	return item.owner == desktop or item.owner == backpack
 
@@ -52,6 +62,10 @@ func lose_coins(value: int) -> void:
 
 	coin = max(coin - value, 0)
 	stats_changed.emit()
+
+
+func earn_income()-> void:
+	gain_coins(income)
 
 
 func increase_income(value: int) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v0s73xkv148o"
-path="res://.godot/imported/1743318391841.png-e8409cc4aa642297effd609bd8d7de47.ctex"
+uid="uid://dg0abkpnk22jd"
+path="res://.godot/imported/membership.png-41f5ef12c5a0edfab8c2c50271787c99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/items/1743318391841.png"
-dest_files=["res://.godot/imported/1743318391841.png-e8409cc4aa642297effd609bd8d7de47.ctex"]
+source_file="res://game/art/items/membership.png"
+dest_files=["res://.godot/imported/membership.png-41f5ef12c5a0edfab8c2c50271787c99.ctex"]
 
 [params]
 

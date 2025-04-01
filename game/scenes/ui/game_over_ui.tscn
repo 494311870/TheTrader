@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn5simgnu5kcv"]
+
+[ext_resource type="Script" path="res://game/scenes/ui/game_over_ui.gd" id="1_8toqr"]
+[ext_resource type="Texture2D" uid="uid://b2821tfhjb1cg" path="res://game/art/icons/arrow_clockwise.png" id="1_t48f1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt3qg"]
+bg_color = Color(0, 0, 0, 0.8)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yruyq"]
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8toqr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vt3qg")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+theme_override_font_sizes/font_size = 80
+text = "游戏结束"
+
+[node name="Restart" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yruyq")
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/Restart"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/Restart"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Restart/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_t48f1")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Restart/RestartButton" to="." method="_on_restart_button_pressed"]

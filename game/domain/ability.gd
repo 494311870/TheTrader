@@ -1,6 +1,8 @@
 ﻿class_name Ability
 extends Resource
 
+@export_multiline var description: String
+
 var is_activated: bool
 
 func activate() -> void:

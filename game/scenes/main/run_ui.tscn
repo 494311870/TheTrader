@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dab3iyro08f4o"]
+
+[ext_resource type="Script" path="res://game/scenes/main/run_ui.gd" id="1_3fiav"]
+[ext_resource type="Texture2D" uid="uid://b4pih53hoprfv" path="res://game/art/icons/flag_triangle.png" id="1_ys6a7"]
+[ext_resource type="Texture2D" uid="uid://bcnheervraj1s" path="res://game/art/icons/hourglass.png" id="2_uo58o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8s5o"]
+
+[node name="RunUI" type="PanelContainer"]
+offset_left = 1760.0
+offset_top = 543.0
+offset_right = 1891.0
+offset_bottom = 607.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q8s5o")
+script = ExtResource("1_3fiav")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+modulate = Color(1, 0.498039, 0, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_uo58o")
+
+[node name="DaysLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+modulate = Color(1, 0.498039, 0, 1)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ys6a7")
+
+[node name="TargetLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100"

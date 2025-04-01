@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://qqcfwt5c48dk"]
+
+[ext_resource type="Texture2D" uid="uid://bwgnumtd8n2o3" path="res://game/art/items/fruit_stand.png" id="1_jgrjc"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_mvxkb"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_jbds0"]
+
+[resource]
+script = ExtResource("2_mvxkb")
+art = ExtResource("1_jgrjc")
+name = "水果摊"
+description = ""
+item_size = 3
+level = 0
+price = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_jbds0")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

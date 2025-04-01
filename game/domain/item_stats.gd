@@ -24,6 +24,7 @@ signal stats_changed
 @export var level: ItemLevel
 @export var price: int: set = _set_price
 @export var tags: Array[ItemTag]
+@export var abilities: Array[ItemAbility]
 
 var id: String: get = _get_id
 var id_in_slot: int
@@ -58,3 +59,18 @@ func _get_size_tag() -> ItemTag:
 		ItemSize.Large: return Large_Tag
 		_: return null
 
+func activate_abilities() -> void:
+	if not abilities:
+		return
+	
+	for ability in abilities:
+		ability.owner = self
+		ability.activate()
+		
+func deactivate_abilities() -> void:
+	if not abilities:
+		return
+	
+	for ability in abilities:
+		ability.deactivate()
+		ability.owner = null

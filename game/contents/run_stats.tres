@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RunStats" load_steps=2 format=3 uid="uid://bmti12nqikmw0"]
+
+[ext_resource type="Script" path="res://game/domain/run_stats.gd" id="1_p8yg7"]
+
+[resource]
+script = ExtResource("1_p8yg7")
+days = 0
+next_day_target = 2

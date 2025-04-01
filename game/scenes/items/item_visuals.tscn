@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
 [ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/ui/mask.png" id="2_b3lv5"]
 [ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/items/lighter.png" id="3_6qtoy"]
-[ext_resource type="Texture2D" uid="uid://be218ps2pf3jg" path="res://game/art/borders/silver.png" id="4_vljbd"]
+[ext_resource type="Texture2D" uid="uid://cxs2yi6fkndfl" path="res://game/art/borders/bronze.png" id="4_gk1l0"]
 [ext_resource type="Texture2D" uid="uid://b08noi1mvhdwj" path="res://game/art/icons/tag.png" id="5_p4ffl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4ytf"]
@@ -57,6 +57,7 @@ texture = ExtResource("3_6qtoy")
 expand_mode = 1
 
 [node name="Border" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -64,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_vljbd")
+texture = ExtResource("4_gk1l0")
 patch_margin_left = 50
 patch_margin_top = 50
 patch_margin_right = 50
