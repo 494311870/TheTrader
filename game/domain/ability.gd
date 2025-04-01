@@ -27,3 +27,6 @@ func _on_activate() -> void:
 
 func _on_deactivate() -> void:
 	pass
+
+func get_description() -> String:
+	return description

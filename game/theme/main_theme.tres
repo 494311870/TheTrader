@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://c6m4pi2puf5iu"]
 
 [ext_resource type="Texture2D" uid="uid://dejl1o244lx53" path="res://game/art/ui/button_1.png" id="1_a16gj"]
-[ext_resource type="FontFile" uid="uid://b76sudveldl8t" path="res://game/art/fonts/NotoSerifSC-VF.ttf" id="2_vp36t"]
+[ext_resource type="FontFile" uid="uid://vciuskckrfa2" path="res://game/art/fonts/MiSans-Bold.ttf" id="2_6l7e1"]
 [ext_resource type="FontFile" uid="uid://cc0etdqb42xnt" path="res://game/art/fonts/Kaph-Regular.ttf" id="3_7vuek"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx18e"]
@@ -51,6 +51,12 @@ Button/styles/focus = SubResource("StyleBoxTexture_enfm1")
 Button/styles/hover = SubResource("StyleBoxTexture_x5cbv")
 Button/styles/normal = SubResource("StyleBoxTexture_j502c")
 Button/styles/pressed = SubResource("StyleBoxTexture_s7ho1")
+TagLabel/base_type = &"Label"
+TagLabel/colors/font_color = Color(0.976471, 0.968627, 0.968627, 1)
+TagLabel/colors/font_outline_color = Color(0.0666667, 0.176471, 0.305882, 1)
+TagLabel/constants/outline_size = 8
+TagLabel/font_sizes/font_size = 32
+TagLabel/fonts/font = ExtResource("2_6l7e1")
 TextLabel/base_type = &"Label"
 TextLabel/font_sizes/font_size = 32
-TextLabel/fonts/font = ExtResource("2_vp36t")
+TextLabel/fonts/font = ExtResource("2_6l7e1")

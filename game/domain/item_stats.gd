@@ -4,26 +4,14 @@ extends Resource
 const Small_Tag  := preload("res://game/contents/tags/small.tres")
 const Medium_Tag := preload("res://game/contents/tags/medium.tres")
 const Large_Tag  := preload("res://game/contents/tags/large.tres")
-enum ItemSize{
-	Small = 1,
-	Medium = 2,
-	Large = 3,
-}
-enum ItemLevel{
-	Bronze = 1,
-	Silver = 2,
-	Gold = 3,
-	Diamond = 4,
-	Legendary = 5
-}
 signal stats_changed
 @export var art: Texture2D
 @export var name: String
 @export var description: String
-@export var item_size: ItemSize = ItemSize.Small
-@export var level: ItemLevel
+@export var item_size: Item.Size = Item.Size.Small
+@export var level: Item.Level
 @export var price: int: set = _set_price
-@export var income: int: set = _set_income
+@export var bonus: int: set = _set_bonus
 @export var tags: Array[ItemTag]
 @export var abilities: Array[ItemAbility]
 
@@ -47,8 +35,8 @@ func _set_price(value: int) -> void:
 	stats_changed.emit()
 
 
-func _set_income(value: int) -> void:
-	income = value
+func _set_bonus(value: int) -> void:
+	bonus = value
 	stats_changed.emit()
 
 
@@ -59,11 +47,18 @@ func has_tag(tag: ItemTag) -> bool:
 	return tags.has(tag)
 
 
+func get_tags() -> Array[ItemTag]:
+	var result: Array[ItemTag] = []
+	result.append(_get_size_tag())
+	result.append_array(tags)
+	return result
+
+
 func _get_size_tag() -> ItemTag:
 	match item_size:
-		ItemSize.Small: return Small_Tag
-		ItemSize.Medium: return Medium_Tag
-		ItemSize.Large: return Large_Tag
+		Item.Size.Small: return Small_Tag
+		Item.Size.Medium: return Medium_Tag
+		Item.Size.Large: return Large_Tag
 		_: return null
 
 
@@ -85,3 +80,22 @@ func deactivate_abilities() -> void:
 		ability.owner = null
 
 
+func trigger_abilities(trigger: Item.Trigger) -> void:
+	if not self.abilities:
+		return
+
+	for ability: ItemAbility in self.abilities:
+		if ability.trigger == trigger:
+			ability.owner = self
+			ability.raise_trigger()
+
+
+func get_adjacent_items() -> Array[ItemStats]:
+	return owner.get_adjacent_items(self)
+
+
+func get_other_items() -> Array[ItemStats]:
+	var result: Array[ItemStats] = []
+	result.append_array(owner.items)
+	result.erase(self)
+	return result

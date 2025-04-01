@@ -4,13 +4,13 @@ extends Resource
 const Max_Slot_Quantity := 10
 signal stats_changed
 signal set_up_requested
-
 @export_range(1, Max_Slot_Quantity, 1)
 var slot_quantity: int = 10
 @export var items: Array[ItemStats] = []
 
 var _slots      := PackedInt32Array()
 var _slots_temp := PackedInt32Array()
+
 
 func set_up_with_empty()-> void:
 	_slots.resize(slot_quantity)
@@ -32,10 +32,10 @@ func set_up_with_items(initial_items: Array[ItemStats])-> void:
 		for i in range(0, item.item_size):
 			_slots[slot_index] = item.id_in_slot
 			slot_index += 1
-	
+
 	set_up_requested.emit()
 
-		
+
 func _shrink() -> void:
 	var quantity: int = 0
 	for item in items:
@@ -72,6 +72,39 @@ func remap_items_id() -> void:
 
 func get_start_index(item: ItemStats) -> int:
 	return _slots.find(item.id_in_slot)
+
+
+func get_adjacent_items(item: ItemStats) -> Array[ItemStats]:
+	var result: Array[ItemStats] = []
+
+	var left: ItemStats = get_left_item(item)
+	if left:
+		result.append(left)
+
+	var right: ItemStats = get_right_item(item)
+	if right:
+		result.append(right)
+
+	return result
+
+
+func get_left_item(item: ItemStats) -> ItemStats:
+	var start_index: int = get_start_index(item)
+	if start_index - 1 >= 0 and _slots[start_index - 1] != -1:
+		return get_item(start_index - 1)
+
+	return null
+
+
+func get_right_item(item: ItemStats) -> ItemStats:
+	var start_index: int = get_start_index(item)
+	var item_size: int   = item.item_size
+	var end_index: int   = start_index + item_size - 1
+
+	if end_index + 1 < _slots.size() and _slots[end_index + 1] != -1:
+		return get_item(end_index + 1)
+
+	return null
 
 
 func has_enough_space_after(start_index: int, item: ItemStats) -> bool:
@@ -133,6 +166,7 @@ func put_item(item: ItemStats, start_index: int) -> void:
 	for i in range(0, item.item_size):
 		_slots[start_index + i] = item.id_in_slot
 
+	_raise_stats_changed()
 
 func remove_item(item: ItemStats) -> void:
 	var start_index: int = _slots.find(item.id_in_slot)
@@ -142,6 +176,7 @@ func remove_item(item: ItemStats) -> void:
 
 	items.erase(item)
 	item.owner = null
+	_raise_stats_changed()
 
 
 func insert_item(target_item: ItemStats, to_index: int) -> void:
@@ -176,6 +211,13 @@ func insert_item(target_item: ItemStats, to_index: int) -> void:
 		_slots[i] = backup[i - move_start_index]
 
 	print(get_name(), _slots)
+	_raise_stats_changed()
+
+
+func _raise_stats_changed() -> void:
+	stats_changed.emit()
+	for item in items:
+		item.trigger_abilities(Item.Trigger.SlotChanged)
 
 
 func _get_next_item_id() -> int:

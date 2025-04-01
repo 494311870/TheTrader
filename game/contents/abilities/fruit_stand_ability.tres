@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ci5ywp4yieisr"]
+
+[ext_resource type="Script" path="res://game/contents/abilities/fruit_stand_ability.gd" id="1_tqc5v"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="1_yngbc"]
+
+[resource]
+script = ExtResource("1_tqc5v")
+item_tag = ExtResource("1_yngbc")
+trigger = 5
+description = "桌面上每有一个{0}，此物品获得+1红利。"

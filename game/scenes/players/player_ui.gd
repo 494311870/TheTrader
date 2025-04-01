@@ -3,6 +3,8 @@ extends Control
 
 signal backpack_clicked
 signal before_drop_item(item_ui: ItemUI)
+signal show_item_tool_tip_requested(item_ui: ItemUI)
+signal hide_item_tool_tip_requested
 @export var stats: CharacterStats: set = _set_stats
 
 @onready var backpack_button: Button = %BackpackButton
@@ -15,6 +17,8 @@ signal before_drop_item(item_ui: ItemUI)
 func _ready():
 	backpack_button.pressed.connect(_on_backpack_button_pressed)
 	slot_ui.slot.before_drop_item.connect(_slot_on_before_drop_item)
+	slot_ui.slot.show_tool_tip_requested.connect(_show_item_tool_tip)
+	slot_ui.slot.hide_tool_tip_requested.connect(_hide_item_tool_tip)
 
 
 func _set_stats(value: CharacterStats) -> void:
@@ -47,4 +51,10 @@ func _on_backpack_button_pressed() -> void:
 func _slot_on_before_drop_item(item_ui: ItemUI) -> void:
 	before_drop_item.emit(item_ui)
 
-		
+
+func _show_item_tool_tip(item_ui: ItemUI) -> void:
+	show_item_tool_tip_requested.emit(item_ui)
+
+
+func _hide_item_tool_tip()-> void:
+	hide_item_tool_tip_requested.emit()

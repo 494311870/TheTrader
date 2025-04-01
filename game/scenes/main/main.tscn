@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=16 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
 [ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
@@ -10,9 +10,10 @@
 [ext_resource type="Resource" uid="uid://cojiqrr88vkdu" path="res://game/contents/characters/player.tres" id="7_fn1df"]
 [ext_resource type="PackedScene" uid="uid://dxy63pkp6pbxb" path="res://game/scenes/players/player_ui.tscn" id="7_t02in"]
 [ext_resource type="PackedScene" uid="uid://dqgoxwdrv0sej" path="res://game/scenes/players/backpack_ui.tscn" id="8_3lbgv"]
-[ext_resource type="PackedScene" uid="uid://cn5simgnu5kcv" path="res://game/scenes/ui/game_over_ui.tscn" id="11_1sdek"]
 [ext_resource type="Script" path="res://game/scenes/main/seller.gd" id="12_bc1jl"]
 [ext_resource type="PackedScene" uid="uid://dab3iyro08f4o" path="res://game/scenes/main/run_ui.tscn" id="13_q2itg"]
+[ext_resource type="PackedScene" uid="uid://m21etf8xpusx" path="res://game/scenes/ui/item_tool_tip_ui.tscn" id="14_gyg4y"]
+[ext_resource type="PackedScene" uid="uid://c47pg4limod2j" path="res://game/scenes/ui/settlement_ui.tscn" id="14_jkdo5"]
 
 [sub_resource type="Resource" id="Resource_lpxqp"]
 script = ExtResource("5_ov3pa")
@@ -71,9 +72,6 @@ grow_horizontal = 2
 mouse_filter = 2
 script = ExtResource("12_bc1jl")
 
-[node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("11_1sdek")]
-visible = false
-
 [node name="RunUI" parent="CanvasLayer" instance=ExtResource("13_q2itg")]
 unique_name_in_owner = true
 offset_left = 1757.0
@@ -81,10 +79,33 @@ offset_top = 493.0
 offset_right = 1888.0
 offset_bottom = 636.0
 
-[connection signal="show_game_over_requested" from="Handlers/MainHandler" to="CanvasLayer/GameOverUI" method="show_result"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="SettlementUI" parent="CanvasLayer2" instance=ExtResource("14_jkdo5")]
+visible = false
+
+[node name="ToolTipLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemToolTipUI" parent="ToolTipLayer" instance=ExtResource("14_gyg4y")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 10.0
+offset_right = 212.0
+offset_bottom = 283.0
+grow_horizontal = 2
+
+[connection signal="show_show_requested" from="Handlers/MainHandler" to="CanvasLayer2/SettlementUI" method="show_settlement"]
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]
+[connection signal="hide_item_tool_tip_requested" from="CanvasLayer/TraderUI" to="ToolTipLayer/ItemToolTipUI" method="hide_tool_tip"]
 [connection signal="leave_requested" from="CanvasLayer/TraderUI" to="Handlers/MainHandler" method="_on_leave_requested"]
+[connection signal="show_item_tool_tip_requested" from="CanvasLayer/TraderUI" to="ToolTipLayer/ItemToolTipUI" method="show_item"]
 [connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/BackpackUI" method="_on_backpack_clicked"]
 [connection signal="before_drop_item" from="CanvasLayer/PlayerUI" to="Handlers/PlayerHandler" method="_buy_item"]
+[connection signal="hide_item_tool_tip_requested" from="CanvasLayer/PlayerUI" to="ToolTipLayer/ItemToolTipUI" method="hide_tool_tip"]
+[connection signal="show_item_tool_tip_requested" from="CanvasLayer/PlayerUI" to="ToolTipLayer/ItemToolTipUI" method="show_item"]
 [connection signal="sell_requested" from="CanvasLayer/Seller" to="Handlers/PlayerHandler" method="_sell_item"]
-[connection signal="restart_requested" from="CanvasLayer/GameOverUI" to="Handlers/MainHandler" method="_restart_game"]
+[connection signal="next_requested" from="CanvasLayer2/SettlementUI" to="Handlers/MainHandler" method="_next_day"]
+[connection signal="restart_requested" from="CanvasLayer2/SettlementUI" to="Handlers/MainHandler" method="_restart_game"]

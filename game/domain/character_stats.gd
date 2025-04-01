@@ -27,7 +27,7 @@ func dispose():
 		item.deactivate_abilities()
 	for item in backpack.items:
 		item.deactivate_abilities()
-		
+
 	desktop.clear()
 	backpack.clear()
 
@@ -46,6 +46,14 @@ func find_same_item(id: String) -> ItemStats:
 			return item
 
 	return null
+
+
+func calculate_bonus() -> int:
+	var result: int = 0
+	for item in desktop.items:
+		result += item.bonus
+
+	return result
 
 
 func gain_coins(value: int) -> void:

@@ -11,7 +11,7 @@ func next_day()-> void:
 	if days % 4 == 0:
 		next_day_target *= 2
 	else:
-		next_day_target += days * 2
+		next_day_target += days * 1
 
 	stats_changed.emit()
 	

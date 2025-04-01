@@ -34,8 +34,8 @@ func update_stats() -> void:
 		await ready
 
 	_price_label.text = str(stats.price)
-	_income.visible = stats.income > 0
-	_income_label.text = str(stats.income)
+	_income.visible = stats.bonus > 0
+	_income_label.text = str(stats.bonus)
 
 
 func update_item() -> void:

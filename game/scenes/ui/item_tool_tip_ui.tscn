@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://m21etf8xpusx"]
+
+[ext_resource type="Script" path="res://game/scenes/ui/item_tool_tip_ui.gd" id="1_115hl"]
+[ext_resource type="PackedScene" uid="uid://cxb624aufdbyn" path="res://game/scenes/ui/tag_ui.tscn" id="1_mc56t"]
+[ext_resource type="PackedScene" uid="uid://b3tf0eom04er6" path="res://game/scenes/ui/ability_ui.tscn" id="2_ob1a3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkplv"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.145098, 0.164706, 0.203922, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 5
+border_color = Color(1, 0.603922, 0.235294, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+
+[node name="ItemToolTipUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkplv")
+script = ExtResource("1_115hl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "西瓜"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Tags" type="HFlowContainer" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TagUI" parent="VBoxContainer/HBoxContainer/CenterContainer/Tags" instance=ExtResource("1_mc56t")]
+layout_mode = 2
+
+[node name="TagUI2" parent="VBoxContainer/HBoxContainer/CenterContainer/Tags" instance=ExtResource("1_mc56t")]
+layout_mode = 2
+
+[node name="TagUI3" parent="VBoxContainer/HBoxContainer/CenterContainer/Tags" instance=ExtResource("1_mc56t")]
+layout_mode = 2
+
+[node name="Abilities" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AbilityUI" parent="VBoxContainer/Abilities" instance=ExtResource("2_ob1a3")]
+layout_mode = 2
+
+[node name="AbilityUI2" parent="VBoxContainer/Abilities" instance=ExtResource("2_ob1a3")]
+layout_mode = 2
+
+[node name="AbilityUI3" parent="VBoxContainer/Abilities" instance=ExtResource("2_ob1a3")]
+layout_mode = 2

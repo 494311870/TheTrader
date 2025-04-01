@@ -1,0 +1,183 @@
+[gd_scene load_steps=7 format=3 uid="uid://c47pg4limod2j"]
+
+[ext_resource type="Texture2D" uid="uid://bb8j7ixt3hro6" path="res://game/art/icons/arrow_right.png" id="1_mqb10"]
+[ext_resource type="Script" path="res://game/scenes/ui/settlement_ui.gd" id="1_pqp3a"]
+[ext_resource type="Texture2D" uid="uid://b2821tfhjb1cg" path="res://game/art/icons/arrow_clockwise.png" id="2_ioedg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkph2"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.843137, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgnfg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5x50"]
+
+[node name="SettlementUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqp3a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+theme_override_font_sizes/font_size = 64
+text = "今日结算"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "余额"
+
+[node name="CoinLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "128"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.843137, 0, 1)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "红利"
+
+[node name="BonusLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "24"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxFlat_xkph2")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.498039, 0, 1)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "总和"
+
+[node name="SumLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "24"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.498039, 0, 1)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "目标"
+
+[node name="TargetLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "24"
+horizontal_alignment = 2
+
+[node name="Next" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hgnfg")
+
+[node name="NextButton" type="Button" parent="CenterContainer/VBoxContainer/Next"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/Next"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Next/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_mqb10")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Restart" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a5x50")
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer/Restart"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/Restart"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Restart/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_ioedg")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Next/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Restart/RestartButton" to="." method="_on_restart_button_pressed"]

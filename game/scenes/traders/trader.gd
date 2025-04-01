@@ -59,8 +59,8 @@ func _refresh_items() -> void:
 		if customer_item:
 			item.level = customer_item.level
 		else:
-			item.level = ItemStats.ItemLevel.Bronze
-
+			item.level = Item.Level.Bronze
+		
 		item.price = _get_item_base_price(item)
 
 

@@ -11,12 +11,19 @@ func generate() -> Array[ItemStats]:
 
 	var available_items: Array[ItemStats] = pool.filter_with_tags(filter_tags)
 
-	for i in range(self.generate_amount):
+	var count: int       = self.generate_amount
+	var remain_size: int = SlotStats.Max_Slot_Quantity
+	while count > 0:
 		if available_items.is_empty():
 			break
 		var item: ItemStats = available_items.pick_random()
-		result.append(item.create_instance())
 		available_items.erase(item)
+		if remain_size < item.item_size:
+			continue
+
+		result.append(item.create_instance())
+		remain_size -= item.item_size
+		count -=1
 
 	return result
 

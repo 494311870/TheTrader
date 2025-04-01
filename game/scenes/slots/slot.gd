@@ -6,6 +6,8 @@ const Medium_Item_UI := preload("res://game/scenes/items/medium_item_ui.tscn")
 const Large_Item_UI  := preload("res://game/scenes/items/large_item_ui.tscn")
 signal before_drop_item(item: ItemUI)
 signal drag_item_failed(fail_code: ItemUI.FailCode)
+signal show_tool_tip_requested(item_ui: ItemUI)
+signal hide_tool_tip_requested()
 @export var stats: SlotStats: set = _set_stats
 @export var slot_size: Vector2 = Vector2(150, 300)
 @export var debugShape: CollisionShape2D
@@ -34,7 +36,6 @@ func _set_stats(value: SlotStats) -> void:
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
 		stats.set_up_requested.connect(update_slot)
-		
 
 	update_slot()
 
@@ -60,7 +61,7 @@ func update_slot() -> void:
 func update_stats() -> void:
 	if not is_node_ready():
 		await ready
-	
+
 	update_items_position()
 	_sort_children()
 
@@ -70,23 +71,26 @@ func _create_item_ui(item_stats: ItemStats) -> ItemUI:
 	var item_ui: ItemUI            = item_ui_scene.instantiate() as ItemUI
 	item_ui.stats = item_stats
 	item_ui.drag_failed.connect(func (code): drag_item_failed.emit(code))
+	item_ui.show_tool_tip_requested.connect(func(item): show_tool_tip_requested.emit(item))
+	item_ui.hide_tool_tip_requested.connect(func(): hide_tool_tip_requested.emit())
+
 	return item_ui
 
 
-func _get_item_ui_scene(item_size: ItemStats.ItemSize) -> PackedScene:
+func _get_item_ui_scene(item_size: Item.Size) -> PackedScene:
 	match item_size:
-		ItemStats.ItemSize.Small:
+		Item.Size.Small:
 			return Small_Item_UI
-		ItemStats.ItemSize.Medium:
+		Item.Size.Medium:
 			return Medium_Item_UI
-		ItemStats.ItemSize.Large:
+		Item.Size.Large:
 			return Large_Item_UI
 		_:
 			return null
 
 
 func reset_slots() -> void:
-	_sort_children()
+	#	_sort_children()
 	stats.remap_items_id()
 
 
@@ -179,7 +183,7 @@ func _change_location(drop_item: ItemUI, to_index: int) -> void:
 		drop_item.reparent(self)
 
 	stats.insert_item(drop_item.stats, to_index)
-	update_items_position()
+	#	update_items_position()
 	reset_slots()
 	print("index : %s" % to_index)
 	print("item.position : %s" % drop_item.position)
@@ -201,14 +205,14 @@ func _swap_items(start_index: int, drop_item: ItemUI) -> void:
 
 	# put
 	target_slot.put_item(drop_item, start_index)
-	target_slot.update_items_position()
+	#	target_slot.update_items_position()
 	target_slot.reset_slots()
 
 	for item in swap_items:
 		origin_slot.put_item(item, swap_put_index)
 		swap_put_index += item.item_size
 
-	origin_slot.update_items_position()
+	#	origin_slot.update_items_position()
 	origin_slot.reset_slots()
 
 

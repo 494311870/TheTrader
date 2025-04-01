@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxb624aufdbyn"]
+
+[ext_resource type="Script" path="res://game/scenes/ui/tag_ui.gd" id="1_1gtla"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq627"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.211765, 0.309804, 0.419608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0666667, 0.176471, 0.305882, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TagUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sq627")
+script = ExtResource("1_1gtla")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TagLabel"
+text = "水果"

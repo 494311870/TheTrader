@@ -1,7 +1,7 @@
 extends Node
 
 signal show_trader_requested(trader_stats: TraderStats)
-signal show_game_over_requested(result: String)
+signal show_show_requested(run: RunStats, character: CharacterStats)
 @export_dir var _traders_dir: String
 @export var _traders: Array[TraderStats] = []
 @export var _run_stats_template: RunStats
@@ -37,27 +37,14 @@ func _set_up() -> void:
 func _next_day() ->void:
 	if _run_stats.days != 0:
 		_player.earn_income()
+		_player.gain_coins(_player.calculate_bonus()) 
 
 	_run_stats.next_day()
 	_refresh_trader()
 
 
-func _game_fail() -> void:
-	show_game_over_requested.emit("失败")
-
-
-func _game_success() -> void:
-	show_game_over_requested.emit("成功")
-
-
 func _on_leave_requested() -> void:
-	# check score target
-	# gain income
-	if _player.coin < _run_stats.next_day_target:
-		_game_fail()
-		return
-
-	_next_day()
+	show_show_requested.emit(_run_stats, _player)
 
 
 func _refresh_trader() ->void:

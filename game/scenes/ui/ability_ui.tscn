@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3tf0eom04er6"]
+
+[ext_resource type="Texture2D" uid="uid://bjy1i5x1ih2wg" path="res://game/art/icons/hexagon.png" id="1_2h2w6"]
+[ext_resource type="Script" path="res://game/scenes/ui/ability_ui.gd" id="1_wte8y"]
+
+[node name="AbilityUI" type="HBoxContainer"]
+offset_right = 37.0
+offset_bottom = 42.0
+script = ExtResource("1_wte8y")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.498039, 0, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_2h2w6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TextLabel"
+text = "文本描述"
