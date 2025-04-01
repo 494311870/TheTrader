@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="TraderStats" load_steps=7 format=3 uid="uid://banoqjf1fw4vu"]
+
+[ext_resource type="Texture2D" uid="uid://dec1uchn5ok38" path="res://game/art/faces/1743391179694.png" id="1_vsyvs"]
+[ext_resource type="Resource" uid="uid://b6o7e7p4yteuc" path="res://game/contents/tags/medium.tres" id="3_bcnph"]
+[ext_resource type="Script" path="res://game/domain/item_generator.gd" id="3_jscse"]
+[ext_resource type="Script" path="res://game/domain/trader_stats.gd" id="4_7841i"]
+[ext_resource type="Resource" uid="uid://csfikrjkx2kgd" path="res://game/contents/tags/small.tres" id="4_lbfix"]
+
+[sub_resource type="Resource" id="Resource_73m02"]
+script = ExtResource("3_jscse")
+generate_amount = 3
+filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_bcnph"), ExtResource("4_lbfix")])
+
+[resource]
+script = ExtResource("4_7841i")
+item_generator = SubResource("Resource_73m02")
+art = ExtResource("1_vsyvs")
+name = ""
+description = ""

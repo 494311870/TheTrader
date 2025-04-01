@@ -3,6 +3,7 @@ extends Resource
 
 @export_group("Attributes")
 @export var desktop: SlotStats
+@export var item_pool: ItemPool
 @export var item_generator: ItemGenerator
 @export var ability: Ability
 @export_group("Visuals")
@@ -13,7 +14,7 @@ extends Resource
 @export var desktop_style_box: StyleBox
 
 
-func refresh_desktop(item_pool: ItemPool):
+func refresh_desktop():
 	item_generator.pool = item_pool
 	var items: Array[ItemStats] = item_generator.generate()
 	if not desktop:

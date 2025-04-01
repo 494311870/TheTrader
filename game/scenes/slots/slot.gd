@@ -24,6 +24,7 @@ func _set_stats(value: SlotStats) -> void:
 
 	if stats != null:
 		stats.stats_changed.disconnect(update_stats)
+		stats.set_up_requested.disconnect(update_slot)
 
 	stats = value
 
@@ -32,6 +33,8 @@ func _set_stats(value: SlotStats) -> void:
 
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
+		stats.set_up_requested.connect(update_slot)
+		
 
 	update_slot()
 
@@ -55,6 +58,9 @@ func update_slot() -> void:
 
 
 func update_stats() -> void:
+	if not is_node_ready():
+		await ready
+	
 	update_items_position()
 	_sort_children()
 

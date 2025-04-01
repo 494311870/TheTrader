@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=12 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
 [ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
 [ext_resource type="PackedScene" uid="uid://dupn0g21i76x7" path="res://game/scenes/traders/trader_ui.tscn" id="2_uy2fy"]
-[ext_resource type="Resource" uid="uid://blo3m866l3efq" path="res://game/contents/traders/trader.tres" id="3_x1a5e"]
 [ext_resource type="Script" path="res://game/scenes/main/trader_handler.gd" id="4_8fvy6"]
 [ext_resource type="Script" path="res://game/domain/item_pool.gd" id="5_ov3pa"]
 [ext_resource type="Script" path="res://game/scenes/main/player_handler.gd" id="6_6y3je"]
@@ -30,7 +29,7 @@ metadata/_edit_lock_ = true
 
 [node name="MainHandler" type="Node" parent="Handlers"]
 script = ExtResource("2_q014j")
-trader_stats = ExtResource("3_x1a5e")
+_traders_dir = "res://game/contents/traders"
 
 [node name="PlayerHandler" type="Node" parent="Handlers"]
 script = ExtResource("6_6y3je")
@@ -63,7 +62,9 @@ custom_minimum_size = Vector2(0, 280)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 280.0
 grow_horizontal = 2
+mouse_filter = 2
 script = ExtResource("12_bc1jl")
 
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]

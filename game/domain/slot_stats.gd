@@ -3,6 +3,8 @@ extends Resource
 
 const Max_Slot_Quantity := 10
 signal stats_changed
+signal set_up_requested
+
 @export_range(1, Max_Slot_Quantity, 1)
 var slot_quantity: int = 10
 @export var items: Array[ItemStats] = []
@@ -13,6 +15,7 @@ var _slots_temp := PackedInt32Array()
 func set_up_with_empty()-> void:
 	_slots.resize(slot_quantity)
 	_slots.fill(-1)
+	set_up_requested.emit()
 
 
 func set_up_with_items(initial_items: Array[ItemStats])-> void:
@@ -29,7 +32,8 @@ func set_up_with_items(initial_items: Array[ItemStats])-> void:
 		for i in range(0, item.item_size):
 			_slots[slot_index] = item.id_in_slot
 			slot_index += 1
-
+	
+	set_up_requested.emit()
 
 		
 func _shrink() -> void:

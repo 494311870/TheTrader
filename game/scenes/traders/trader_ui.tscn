@@ -1,11 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dupn0g21i76x7"]
+[gd_scene load_steps=13 format=3 uid="uid://dupn0g21i76x7"]
 
 [ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="1_q1v4p"]
 [ext_resource type="Script" path="res://game/scenes/traders/trader_ui.gd" id="1_vggdm"]
-[ext_resource type="PackedScene" uid="uid://mj8uww18p5dy" path="res://game/scenes/ui/refresh_button.tscn" id="2_j3oqo"]
+[ext_resource type="Texture2D" uid="uid://b56g5btsax6nw" path="res://game/art/icons/arrow_rotate.png" id="2_g36wh"]
+[ext_resource type="Texture2D" uid="uid://b08noi1mvhdwj" path="res://game/art/icons/tag.png" id="3_14xc3"]
 [ext_resource type="Texture2D" uid="uid://dec1uchn5ok38" path="res://game/art/faces/1743391179694.png" id="3_seu32"]
 [ext_resource type="Texture2D" uid="uid://ok44g81tvsr6" path="res://game/art/borders/1743390594439.png" id="3_uob4s"]
-[ext_resource type="PackedScene" uid="uid://dfe5qf80v025v" path="res://game/scenes/ui/leave_button.tscn" id="5_xktqj"]
+[ext_resource type="Texture2D" uid="uid://brmmrxn2jejrw" path="res://game/art/icons/arrow_right_curve.png" id="5_j3vum"]
+[ext_resource type="Script" path="res://game/scenes/traders/trader.gd" id="8_mk6qv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve4tf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i04sl"]
+content_margin_left = 35.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 5.0
+texture = ExtResource("3_14xc3")
+texture_margin_left = 32.0
+texture_margin_right = 32.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3rtm"]
 content_margin_left = 14.0
@@ -17,6 +30,8 @@ texture_margin_left = 40.0
 texture_margin_top = 40.0
 texture_margin_right = 40.0
 texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yccyg"]
 
 [node name="TraderUI" type="Control"]
 custom_minimum_size = Vector2(0, 580)
@@ -39,9 +54,47 @@ custom_minimum_size = Vector2(1350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="RefreshButton" parent="VBoxContainer/HFlowContainer" instance=ExtResource("2_j3oqo")]
+[node name="Refresh" type="PanelContainer" parent="VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ve4tf")
+
+[node name="RefreshButton" type="Button" parent="VBoxContainer/HFlowContainer/Refresh"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HFlowContainer/Refresh"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HFlowContainer/Refresh/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_g36wh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HFlowContainer/Refresh/MarginContainer/TextureRect"]
+layout_mode = 2
+offset_left = 111.0
+offset_top = 90.0
+offset_right = 189.0
+offset_bottom = 134.0
+rotation = 0.261799
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_i04sl")
+
+[node name="RefreshPriceLabel" type="Label" parent="VBoxContainer/HFlowContainer/Refresh/MarginContainer/TextureRect/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.360784, 0.25098, 0.2, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "18"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HFlowContainer"]
 layout_mode = 2
@@ -58,9 +111,29 @@ layout_mode = 2
 texture = ExtResource("3_seu32")
 expand_mode = 1
 
-[node name="LeaveButton" parent="VBoxContainer/HFlowContainer" instance=ExtResource("5_xktqj")]
+[node name="Leave" type="PanelContainer" parent="VBoxContainer/HFlowContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yccyg")
+
+[node name="LeaveButton" type="Button" parent="VBoxContainer/HFlowContainer/Leave"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HFlowContainer/Leave"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HFlowContainer/Leave/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_j3vum")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SlotUI" parent="VBoxContainer" instance=ExtResource("1_q1v4p")]
 unique_name_in_owner = true
@@ -83,3 +156,11 @@ layout_mode = 2
 theme_type_variation = &"TextLabel"
 theme_override_font_sizes/font_size = 64
 text = "你钱不够"
+
+[node name="Trader" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_mk6qv")
+
+[connection signal="pressed" from="VBoxContainer/HFlowContainer/Refresh/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer/Refresh/RefreshButton" to="Trader" method="refresh_items"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer/Leave/LeaveButton" to="." method="_on_leave_button_pressed"]

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TraderStats" load_steps=6 format=3 uid="uid://bsw1mgtpst2dt"]
+
+[ext_resource type="Texture2D" uid="uid://p62u7ikiky52" path="res://game/art/faces/1743467431115.png" id="1_ed4i5"]
+[ext_resource type="Resource" uid="uid://csfikrjkx2kgd" path="res://game/contents/tags/small.tres" id="3_jxfmo"]
+[ext_resource type="Script" path="res://game/domain/item_generator.gd" id="4_unwi1"]
+[ext_resource type="Script" path="res://game/domain/trader_stats.gd" id="5_yay4v"]
+
+[sub_resource type="Resource" id="Resource_73m02"]
+script = ExtResource("4_unwi1")
+generate_amount = 3
+filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_jxfmo")])
+
+[resource]
+script = ExtResource("5_yay4v")
+item_generator = SubResource("Resource_73m02")
+art = ExtResource("1_ed4i5")
+name = ""
+description = ""

@@ -8,6 +8,14 @@ func _ready():
 	pass # Replace with function body.
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_BEGIN:
+		self.set_mouse_filter(MOUSE_FILTER_STOP)
+
+	if what == NOTIFICATION_DRAG_END:
+		self.set_mouse_filter(MOUSE_FILTER_IGNORE)
+
+
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if data == null:
 		return false
