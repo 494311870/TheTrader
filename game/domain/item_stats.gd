@@ -23,6 +23,7 @@ signal stats_changed
 @export var item_size: ItemSize = ItemSize.Small
 @export var level: ItemLevel
 @export var price: int: set = _set_price
+@export var income: int: set = _set_income
 @export var tags: Array[ItemTag]
 @export var abilities: Array[ItemAbility]
 
@@ -45,6 +46,12 @@ func _set_price(value: int) -> void:
 	price = value
 	stats_changed.emit()
 
+
+func _set_income(value: int) -> void:
+	income = value
+	stats_changed.emit()
+
+
 func has_tag(tag: ItemTag) -> bool:
 	if _get_size_tag() == tag:
 		return true
@@ -59,18 +66,22 @@ func _get_size_tag() -> ItemTag:
 		ItemSize.Large: return Large_Tag
 		_: return null
 
+
 func activate_abilities() -> void:
 	if not abilities:
 		return
-	
+
 	for ability in abilities:
 		ability.owner = self
 		ability.activate()
-		
+
+
 func deactivate_abilities() -> void:
 	if not abilities:
 		return
-	
+
 	for ability in abilities:
 		ability.deactivate()
 		ability.owner = null
+
+

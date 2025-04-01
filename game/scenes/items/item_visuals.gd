@@ -3,8 +3,10 @@ extends Control
 
 @export var stats: ItemStats: set = _set_stats
 
-@onready var icon: TextureRect = %Icon
-@onready var price_label: Label = %PriceLabel
+@onready var _icon: TextureRect = %Icon
+@onready var _price_label: Label = %PriceLabel
+@onready var _income: Control = %Income
+@onready var _income_label: Label = %IncomeLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +33,9 @@ func update_stats() -> void:
 	if not is_node_ready():
 		await ready
 
-	price_label.text = str(stats.price)
+	_price_label.text = str(stats.price)
+	_income.visible = stats.income > 0
+	_income_label.text = str(stats.income)
 
 
 func update_item() -> void:
@@ -39,6 +43,6 @@ func update_item() -> void:
 	if not is_node_ready():
 		await ready
 
-	icon.texture = stats.art
+	_icon.texture = stats.art
 
 	update_stats()

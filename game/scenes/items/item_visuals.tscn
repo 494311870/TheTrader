@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://caa7fgruxr5xu"]
+[gd_scene load_steps=9 format=3 uid="uid://caa7fgruxr5xu"]
 
 [ext_resource type="Script" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
 [ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/ui/mask.png" id="2_b3lv5"]
 [ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/items/lighter.png" id="3_6qtoy"]
 [ext_resource type="Texture2D" uid="uid://cxs2yi6fkndfl" path="res://game/art/borders/bronze.png" id="4_gk1l0"]
 [ext_resource type="Texture2D" uid="uid://b08noi1mvhdwj" path="res://game/art/icons/tag.png" id="5_p4ffl"]
+[ext_resource type="Texture2D" uid="uid://ms3ctygdc2gk" path="res://game/art/icons/income.png" id="6_lghmo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4ytf"]
 content_margin_left = 35.0
@@ -14,6 +15,17 @@ content_margin_bottom = 5.0
 texture = ExtResource("5_p4ffl")
 texture_margin_left = 32.0
 texture_margin_right = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1dsp"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+texture = ExtResource("6_lghmo")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
 
 [node name="ItemVisuals" type="Control"]
 layout_mode = 3
@@ -84,6 +96,29 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_p4ytf")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.360784, 0.25098, 0.2, 1)
-theme_override_constants/outline_size = 6
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 24
 text = "18"
+
+[node name="Income" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -14.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f1dsp")
+
+[node name="IncomeLabel" type="Label" parent="Income"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.360784, 0.25098, 0.2, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 24
+text = "12"
+horizontal_alignment = 1
