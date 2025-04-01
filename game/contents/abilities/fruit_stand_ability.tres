@@ -1,10 +1,17 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ci5ywp4yieisr"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://ci5ywp4yieisr"]
 
+[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_mbu3a"]
 [ext_resource type="Script" path="res://game/contents/abilities/fruit_stand_ability.gd" id="1_tqc5v"]
 [ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="1_yngbc"]
 
+[sub_resource type="Resource" id="Resource_ca4wu"]
+script = ExtResource("1_mbu3a")
+base_value = 1
+step_value = 1
+
 [resource]
 script = ExtResource("1_tqc5v")
-item_tag = ExtResource("1_yngbc")
+_item_tag = ExtResource("1_yngbc")
+_bonus = SubResource("Resource_ca4wu")
 trigger = 5
-description = "桌面上每有一个{0}，此物品获得+1红利。"
+description = "桌面上每有一个{0}，此物品获得+{1}红利。"

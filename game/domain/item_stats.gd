@@ -1,4 +1,4 @@
-﻿class_name ItemStats
+class_name ItemStats
 extends Resource
 
 const Small_Tag  := preload("res://game/contents/tags/small.tres")
@@ -19,10 +19,16 @@ var id: String: get = _get_id
 var id_in_slot: int
 var owner: SlotStats
 var coin_not_enough: bool
+var is_level_up: bool
 
 
 func create_instance() -> ItemStats:
 	var instance: ItemStats = duplicate()
+
+	if instance.abilities:
+		for ability: ItemAbility in instance.abilities:
+			ability.owner = instance
+
 	return instance
 
 
@@ -62,12 +68,17 @@ func _get_size_tag() -> ItemTag:
 		_: return null
 
 
+func get_base_price() -> int:
+	var level: int = self.level
+	var size: int = self.item_size
+	return size * 2 * level
+
+
 func activate_abilities() -> void:
 	if not abilities:
 		return
 
 	for ability in abilities:
-		ability.owner = self
 		ability.activate()
 
 
@@ -77,7 +88,6 @@ func deactivate_abilities() -> void:
 
 	for ability in abilities:
 		ability.deactivate()
-		ability.owner = null
 
 
 func trigger_abilities(trigger: Item.Trigger) -> void:
@@ -86,8 +96,12 @@ func trigger_abilities(trigger: Item.Trigger) -> void:
 
 	for ability: ItemAbility in self.abilities:
 		if ability.trigger == trigger:
-			ability.owner = self
 			ability.raise_trigger()
+
+
+func level_up():
+	level += 1
+	price += self.item_size
 
 
 func get_adjacent_items() -> Array[ItemStats]:
@@ -99,3 +113,8 @@ func get_other_items() -> Array[ItemStats]:
 	result.append_array(owner.items)
 	result.erase(self)
 	return result
+
+
+
+	
+	

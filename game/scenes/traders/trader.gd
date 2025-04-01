@@ -58,13 +58,8 @@ func _refresh_items() -> void:
 		var customer_item: ItemStats = self.customer.find_same_item(item.id)
 		if customer_item:
 			item.level = customer_item.level
+			item.is_level_up = true
 		else:
 			item.level = Item.Level.Bronze
 		
-		item.price = _get_item_base_price(item)
-
-
-func _get_item_base_price(item: ItemStats) -> int:
-	var level: int = item.level
-	var size: int  = item.item_size
-	return size * level * 2
+		item.price = item.get_base_price()

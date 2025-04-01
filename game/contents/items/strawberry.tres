@@ -12,4 +12,6 @@ description = ""
 item_size = 1
 level = 0
 price = 0
+bonus = 0
 tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_h1eg2")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

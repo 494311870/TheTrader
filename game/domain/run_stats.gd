@@ -8,8 +8,8 @@ signal stats_changed
 
 func next_day()-> void:
 	days += 1
-	if days % 4 == 0:
-		next_day_target *= 2
+	if days % 8 == 0:
+		next_day_target += days * 2
 	else:
 		next_day_target += days * 1
 

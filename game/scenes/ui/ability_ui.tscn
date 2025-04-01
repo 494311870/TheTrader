@@ -6,12 +6,14 @@
 [node name="AbilityUI" type="HBoxContainer"]
 offset_right = 37.0
 offset_bottom = 42.0
+mouse_filter = 2
 script = ExtResource("1_wte8y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(1, 0.498039, 0, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_2h2w6")
 expand_mode = 1
 stretch_mode = 5

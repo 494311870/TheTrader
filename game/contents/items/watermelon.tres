@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://ywgfxf1kqbgb"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://ywgfxf1kqbgb"]
 
+[ext_resource type="Resource" uid="uid://btddebc7yh35f" path="res://game/contents/abilities/watermelon_ability.tres" id="1_pevh4"]
 [ext_resource type="Texture2D" uid="uid://bd4h8blh51lea" path="res://game/art/items/watermelon.png" id="1_s3kyf"]
 [ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_p10ip"]
 [ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_h1wdd"]
@@ -12,4 +13,6 @@ description = ""
 item_size = 2
 level = 0
 price = 0
+bonus = 0
 tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_h1wdd")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_pevh4")])

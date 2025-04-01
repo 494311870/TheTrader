@@ -37,9 +37,22 @@ func _buy_item(item_ui: ItemUI) ->void:
 	var item_stats: ItemStats = item_ui.stats
 	if _character_stats.is_owner(item_stats):
 		return
-
 	# buy
 	_character_stats.lose_coins(item_stats.price)
+	if item_stats.is_level_up:
+		upgrade_item(item_ui)
+		return
+	# 
 	item_stats.price /= 2
 	item_stats.coin_not_enough = false
 	item_stats.activate_abilities.call_deferred()
+	
+	
+func upgrade_item(item_ui: ItemUI) -> void:
+	item_ui.hide()
+	item_ui.queue_free()
+	
+	var item_stats: ItemStats = item_ui.stats
+	var character_item: ItemStats = _character_stats.find_same_item(item_stats.id)
+	character_item.level_up()
+	

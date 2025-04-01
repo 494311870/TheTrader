@@ -40,7 +40,7 @@ func _set_stats(value: CharacterStats) -> void:
 
 
 func _update_stats() -> void:
-	income_label.text = str(stats.income)
+#	income_label.text = str(stats.income)
 	coin_label.text = str(stats.coin)
 
 

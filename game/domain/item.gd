@@ -7,6 +7,7 @@ enum Trigger{
 	SelfSell = 3,
 	OtherSell = 4,
 	SlotChanged = 5,
+	DayStart = 6,
 }
 enum Size{
 	Small = 1,

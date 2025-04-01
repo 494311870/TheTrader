@@ -2,6 +2,7 @@ class_name TraderUI
 extends Control
 
 signal leave_requested
+signal item_level_up_requested(item_ui: ItemUI)
 signal show_item_tool_tip_requested(item_ui: ItemUI)
 signal hide_item_tool_tip_requested
 @export var stats: TraderStats: set = _set_stats
@@ -22,6 +23,7 @@ func _ready() -> void:
 	tip_container.hide()
 
 	slot_ui.slot.drag_item_failed.connect(_on_drag_item_failed)
+	slot_ui.slot.item_level_up_requested.connect(_on_item_level_up_requested)
 	slot_ui.slot.show_tool_tip_requested.connect(_show_item_tool_tip)
 	slot_ui.slot.hide_tool_tip_requested.connect(_hide_item_tool_tip)
 
@@ -52,7 +54,7 @@ func _set_customer(value: CharacterStats) -> void:
 func show_scene() -> void:
 	if not is_node_ready():
 		await ready
-		
+
 	_trader.show_scene()
 	_update_refresh_price()
 	show()
@@ -62,6 +64,10 @@ func _on_drag_item_failed(fail_code: ItemUI.FailCode) ->void:
 	match fail_code:
 		ItemUI.FailCode.Not_Enough_Coin:
 			show_tip("你钱不够。")
+
+
+func _on_item_level_up_requested(item_ui: ItemUI)->void:
+	item_level_up_requested.emit(item_ui)
 
 
 func show_tip(text: String) -> void:
@@ -81,17 +87,18 @@ func show_tip(text: String) -> void:
 func _on_refresh_button_pressed():
 	if _trader.refresh_price > customer.coin:
 		show_tip("你钱不够。")
-	
+
 	_update_refresh_price.call_deferred()
-	
-	
+
+
 func _update_refresh_price():
-	refresh_price_label.text = str(_trader.refresh_price)	
+	refresh_price_label.text = str(_trader.refresh_price)
 
 
 func _on_leave_button_pressed():
 	hide()
 	leave_requested.emit()
+
 
 func _show_item_tool_tip(item_ui: ItemUI) -> void:
 	show_item_tool_tip_requested.emit(item_ui)

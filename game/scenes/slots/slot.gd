@@ -6,6 +6,7 @@ const Medium_Item_UI := preload("res://game/scenes/items/medium_item_ui.tscn")
 const Large_Item_UI  := preload("res://game/scenes/items/large_item_ui.tscn")
 signal before_drop_item(item: ItemUI)
 signal drag_item_failed(fail_code: ItemUI.FailCode)
+signal item_level_up_requested(item_ui: ItemUI)
 signal show_tool_tip_requested(item_ui: ItemUI)
 signal hide_tool_tip_requested()
 @export var stats: SlotStats: set = _set_stats
@@ -71,6 +72,7 @@ func _create_item_ui(item_stats: ItemStats) -> ItemUI:
 	var item_ui: ItemUI            = item_ui_scene.instantiate() as ItemUI
 	item_ui.stats = item_stats
 	item_ui.drag_failed.connect(func (code): drag_item_failed.emit(code))
+	item_ui.level_up_requested.connect(func (item): item_level_up_requested.emit(item))
 	item_ui.show_tool_tip_requested.connect(func(item): show_tool_tip_requested.emit(item))
 	item_ui.hide_tool_tip_requested.connect(func(): hide_tool_tip_requested.emit())
 
@@ -172,6 +174,9 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if origin_slot == target_slot:
 		_change_location(drop_item, slot_index)
 	else:
+		if drop_item.stats.is_level_up:
+			return
+		
 		if stats.has_enough_space_after(slot_index, drop_item.stats):
 			_change_location(drop_item, slot_index)
 		else:

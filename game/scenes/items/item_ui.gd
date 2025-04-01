@@ -5,9 +5,9 @@ enum FailCode{
 	Not_Enough_Coin = 0
 }
 signal drag_failed(fail_code: FailCode)
+signal level_up_requested(item_ui: ItemUI)
 signal show_tool_tip_requested(item_ui: ItemUI)
 signal hide_tool_tip_requested()
-
 @export var item_size: Item.Size
 @export var stats: ItemStats: set = _set_stats
 
@@ -37,9 +37,13 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 		drag_failed.emit(FailCode.Not_Enough_Coin)
 		return null
 
+#	if stats.is_level_up:
+#		level_up_requested.emit(self)
+#		return null
+
 	_is_dragging = true
 	hide_tool_tip_requested.emit()
-	
+
 	var item: Control = duplicate()
 	item.position = -at_position
 	item.z_index = 10
@@ -64,6 +68,7 @@ func _set_stats(value: ItemStats) -> void:
 
 func _on_mouse_entered()->void:
 	show_tool_tip_requested.emit(self)
-	
+
+
 func _on_mouse_exited()->void:
 	hide_tool_tip_requested.emit()

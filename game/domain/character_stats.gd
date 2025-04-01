@@ -48,6 +48,10 @@ func find_same_item(id: String) -> ItemStats:
 	return null
 
 
+func get_all_items() -> Array[ItemStats]:
+	return desktop.items + backpack.items
+
+
 func calculate_bonus() -> int:
 	var result: int = 0
 	for item in desktop.items:
@@ -73,7 +77,8 @@ func lose_coins(value: int) -> void:
 
 
 func earn_income()-> void:
-	gain_coins(income)
+	#	gain_coins(income)
+	pass
 
 
 func increase_income(value: int) -> void:

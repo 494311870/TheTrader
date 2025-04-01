@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_p8yg7")
 days = 0
-next_day_target = 2
+next_day_target = 1

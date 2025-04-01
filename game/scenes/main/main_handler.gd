@@ -37,7 +37,9 @@ func _set_up() -> void:
 func _next_day() ->void:
 	if _run_stats.days != 0:
 		_player.earn_income()
-		_player.gain_coins(_player.calculate_bonus()) 
+		_player.gain_coins(_player.calculate_bonus())
+		for item in _player.get_all_items():
+			item.trigger_abilities(Item.Trigger.DayStart)
 
 	_run_stats.next_day()
 	_refresh_trader()

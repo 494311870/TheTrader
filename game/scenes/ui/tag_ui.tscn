@@ -19,6 +19,7 @@ corner_radius_bottom_left = 10
 [node name="TagUI" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sq627")
 script = ExtResource("1_1gtla")
 
