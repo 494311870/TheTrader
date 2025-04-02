@@ -14,11 +14,11 @@ func _on_trigger()-> void:
 	if _item_size != Item.Size.Invalid:
 		available_items = available_items.filter(func(item: ItemStats): return item.item_size == _item_size)
 
-	var item: ItemStats     = available_items.pick_random()
-	var instance: ItemStats = item.create_instance()
+	var picked_pick: ItemStats     = available_items.pick_random()
+	var instance: ItemStats = picked_pick.create_instance()
 
 	instance.level = owner.level
-	instance.price = instance.get_base_price()
+	instance.price = instance.get_base_price() / 2
 	character.add_new_item(instance)
 
 
