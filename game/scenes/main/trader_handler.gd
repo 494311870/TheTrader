@@ -12,6 +12,7 @@ var _level_weights: PackedInt32Array = [0, 5, 0, 0, 0]
 func _ready() -> void:
 	item_pool.initialize()
 	_customer = owner.get_meta("player_stats")
+	_customer.item_pool = item_pool
 
 
 func _show_trader(trader_stats: TraderStats) -> void:

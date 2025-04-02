@@ -15,6 +15,8 @@ func _set_tag(value: ItemTag) -> void:
 	tag = value
 	if not is_node_ready():
 		await ready
+	if value == null:
+		return
 		
 	_label.text = tag.name
 		

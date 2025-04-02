@@ -43,13 +43,13 @@ func refresh_items() -> void:
 		return
 
 	customer.lose_coins(refresh_price)
-	refresh_price += 1
+	refresh_price *= 2
 	_refresh_items()
 
 
 func show_scene() ->void:
 	print("trader : show_scene")
-	refresh_price = 1
+	refresh_price = 2
 	_refresh_items()
 
 
@@ -70,5 +70,5 @@ func _is_valid_item(item: ItemStats) -> bool:
 	var customer_item: ItemStats = self.customer.find_same_item(item.id)
 	if customer_item:
 		return customer_item.level < Item.Level.Diamond
-		
+
 	return true

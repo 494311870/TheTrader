@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://dxa53rnx3q2ta"]
+
+[ext_resource type="Texture2D" uid="uid://f811tdg003v6" path="res://game/art/items/banana.png" id="1_onhmw"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_0i72f"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="4_m37iq"]
+
+[resource]
+script = ExtResource("2_0i72f")
+art = ExtResource("1_onhmw")
+name = "香蕉"
+description = null
+item_size = 2
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_m37iq")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

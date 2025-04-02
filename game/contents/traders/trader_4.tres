@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_73m02"]
 script = ExtResource("3_76pav")
-generate_amount = 4
+generate_amount = 3
 filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("2_iuv2p"), ExtResource("3_2hht6"), ExtResource("4_rf7r5")])
 
 [resource]

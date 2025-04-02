@@ -1,9 +1,8 @@
 class_name ItemStats
 extends Resource
-
-const Small_Tag  := preload("res://game/contents/tags/small.tres")
-const Medium_Tag := preload("res://game/contents/tags/medium.tres")
-const Large_Tag  := preload("res://game/contents/tags/large.tres")
+const Small_Tag: ItemTag  = preload("res://game/contents/tags/small.tres")
+const Medium_Tag: ItemTag = preload("res://game/contents/tags/medium.tres")
+const Large_Tag: ItemTag  = preload("res://game/contents/tags/large.tres")
 signal stats_changed
 @export var art: Texture2D
 @export var name: String
@@ -51,7 +50,7 @@ func _get_id() -> String:
 
 
 func _set_price(value: int) -> void:
-	price = value
+	price = max(0, value)
 	stats_changed.emit()
 
 
@@ -66,7 +65,7 @@ func _set_is_level_up(value: bool) -> void:
 
 
 func has_tag(tag: ItemTag) -> bool:
-	if _get_size_tag() == tag:
+	if ItemStats.get_size_tag(self.item_size) == tag:
 		return true
 
 	return tags.has(tag)
@@ -74,12 +73,12 @@ func has_tag(tag: ItemTag) -> bool:
 
 func get_tags() -> Array[ItemTag]:
 	var result: Array[ItemTag] = []
-	result.append(_get_size_tag())
+	result.append(ItemStats.get_size_tag(self.item_size))
 	result.append_array(tags)
 	return result
 
 
-func _get_size_tag() -> ItemTag:
+static func get_size_tag(item_size: Item.Size) -> ItemTag:
 	match item_size:
 		Item.Size.Small: return Small_Tag
 		Item.Size.Medium: return Medium_Tag

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cplusg8677gla"]
+
+[ext_resource type="Script" path="res://game/contents/abilities/billboard_ability.gd" id="1_cftgp"]
+[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_qr3qy"]
+
+[sub_resource type="Resource" id="Resource_wqpl1"]
+script = ExtResource("1_qr3qy")
+base_value = 1
+step_value = 1
+
+[resource]
+script = ExtResource("1_cftgp")
+_value = SubResource("Resource_wqpl1")
+trigger = 2
+description = "在桌面上时，每当你购买一个物品，使其获得+{0}价值。"

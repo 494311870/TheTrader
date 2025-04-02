@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=6 format=3 uid="uid://kvpfxgl2vq01"]
+
+[ext_resource type="Resource" uid="uid://ccytboe7t5gd" path="res://game/contents/abilities/mobile_van_ability.tres" id="1_58x68"]
+[ext_resource type="Texture2D" uid="uid://d3pwy2odgs50x" path="res://game/art/items/mobile_van.png" id="2_4el0v"]
+[ext_resource type="Resource" uid="uid://dnop2p36ubnav" path="res://game/contents/abilities/shared/daily_clear_ability.tres" id="2_hbvio"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_ukhoy"]
+[ext_resource type="Resource" uid="uid://djnhs8j6hr8eh" path="res://game/contents/tags/assets.tres" id="4_y02y0"]
+
+[resource]
+script = ExtResource("3_ukhoy")
+art = ExtResource("2_4el0v")
+name = "流动车"
+description = null
+item_size = 2
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_y02y0")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_58x68"), ExtResource("2_hbvio")])

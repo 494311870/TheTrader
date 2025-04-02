@@ -26,12 +26,14 @@ func filter_with_tags(tags: Array[ItemTag]) -> Array[ItemStats]:
 	for item in _pool:
 		if _is_valid(item, tags):
 			result.append(item)
-		
+
 	return result
 
 
 func _is_valid(item: ItemStats, filter_tags: Array[ItemTag]) -> bool:
-	for tag in filter_tags:
+	for tag: ItemTag in filter_tags:
+		print(item.name)
+		print(tag.name)
 		if item.has_tag(tag):
 			return true
 

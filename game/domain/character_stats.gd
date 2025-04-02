@@ -9,6 +9,9 @@ signal new_item_added(item: ItemStats)
 @export var income: int
 
 var current_trader: TraderStats
+var item_pool: ItemPool
+var last_buy_item: ItemStats
+var last_sell_item: ItemStats
 
 
 func create_instance() -> CharacterStats:
@@ -100,6 +103,11 @@ func decrease_income(value: int) -> void:
 	stats_changed.emit()
 
 
+func buy_item(item: ItemStats):
+	lose_coins(item.price)
+	last_buy_item =item
+
+
 func trigger_items_abilities(trigger: Item.Trigger):
 	var items: Array[ItemStats] = get_all_items()
 	for item in items:
@@ -107,9 +115,20 @@ func trigger_items_abilities(trigger: Item.Trigger):
 
 
 func add_new_item(item: ItemStats) -> void:
-	if desktop.get_space() >= item.item_size:
-		desktop.insert_item(item, 0)
-		new_item_added.emit(item)
-	elif backpack.get_space() >= item.item_size:
-		backpack.insert_item(item, 0)
-		new_item_added.emit(item)
+	var slot: SlotStats = _get_enough_space_slot(item.item_size)
+	if not slot:
+		return
+
+	item.activate_abilities(self)
+	slot.insert_item(item, 0)
+	new_item_added.emit(item)
+
+
+func _get_enough_space_slot(item_size: int) -> SlotStats:
+	if desktop.get_space() >= item_size:
+		return desktop
+	elif backpack.get_space() >= item_size:
+		return backpack
+
+	return null
+	

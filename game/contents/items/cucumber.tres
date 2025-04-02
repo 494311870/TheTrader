@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://bol6lp7ecmibw"]
+
+[ext_resource type="Texture2D" uid="uid://cr4x6dntnasnv" path="res://game/art/items/cucumber.png" id="1_rgq2r"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_du6ub"]
+[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="4_jngf4"]
+[ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="4_xk1u1"]
+
+[resource]
+script = ExtResource("3_du6ub")
+art = ExtResource("1_rgq2r")
+name = "黄瓜"
+description = null
+item_size = 2
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_xk1u1"), ExtResource("4_jngf4")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

@@ -22,5 +22,6 @@ func set_up():
 ## func is_valid(item:ItemStats) -> bool
 func refresh_desktop(is_valid: Callable) -> void:
 	item_generator.pool = item_pool
+	print(resource_path)
 	var items: Array[ItemStats] = item_generator.generate(is_valid)
 	desktop.set_up_with_items(items)

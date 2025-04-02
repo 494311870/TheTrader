@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="TraderStats" load_steps=6 format=3 uid="uid://blo3m866l3efq"]
 
-[ext_resource type="Texture2D" uid="uid://qjbr2wile6v3" path="res://game/art/faces/1743391143791.png" id="1_66xx7"]
+[ext_resource type="Texture2D" uid="uid://hu4gq17jp8ru" path="res://game/art/faces/1743568940864.png" id="1_uidxb"]
 [ext_resource type="Script" path="res://game/domain/trader_stats.gd" id="1_vechf"]
 [ext_resource type="Script" path="res://game/domain/item_generator.gd" id="2_bbfq7"]
 [ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="2_ka3mv"]
 
 [sub_resource type="Resource" id="Resource_73m02"]
 script = ExtResource("2_bbfq7")
-generate_amount = 4
+generate_amount = 3
 filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("2_ka3mv")])
 
 [resource]
 script = ExtResource("1_vechf")
 item_generator = SubResource("Resource_73m02")
-art = ExtResource("1_66xx7")
+art = ExtResource("1_uidxb")
 name = ""
 description = ""

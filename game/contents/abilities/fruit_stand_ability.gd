@@ -8,7 +8,7 @@ var bonus: int:
 
 
 func _on_trigger():
-	var items: Array[ItemStats] = get_all_items()
+	var items: Array[ItemStats] = get_other_items()
 	var count: int              = items.filter(_has_tag).size()
 	owner.bonus = count * bonus
 

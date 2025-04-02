@@ -14,4 +14,4 @@ script = ExtResource("1_tqc5v")
 _item_tag = ExtResource("1_yngbc")
 _bonus = SubResource("Resource_ca4wu")
 trigger = 5
-description = "每有一个{0}，此物品获得+{1}红利。"
+description = "每有一个其他{0}，此物品获得+{1}红利。"

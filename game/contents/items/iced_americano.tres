@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://b8qvu57gddmlc"]
+
+[ext_resource type="Texture2D" uid="uid://c2ru1okuhqye7" path="res://game/art/items/iced_americano.png" id="1_p7ppk"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_3ttql"]
+[ext_resource type="Resource" uid="uid://j6gdus3251q5" path="res://game/contents/tags/drink.tres" id="3_i0cag"]
+
+[resource]
+script = ExtResource("2_3ttql")
+art = ExtResource("1_p7ppk")
+name = "冰美式"
+description = null
+item_size = 1
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_i0cag")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])

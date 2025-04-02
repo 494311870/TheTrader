@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://dtdskr07lrawt"]
+
+[ext_resource type="Resource" uid="uid://cplusg8677gla" path="res://game/contents/abilities/billboard_ability.tres" id="1_g6bqu"]
+[ext_resource type="Texture2D" uid="uid://c3n3gn7resgmk" path="res://game/art/items/billboard.png" id="2_4sik0"]
+[ext_resource type="Resource" uid="uid://djnhs8j6hr8eh" path="res://game/contents/tags/assets.tres" id="3_55q7b"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_gh654"]
+
+[resource]
+script = ExtResource("3_gh654")
+art = ExtResource("2_4sik0")
+name = "广告牌"
+description = null
+item_size = 3
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_55q7b")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_g6bqu")])

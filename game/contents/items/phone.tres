@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://dfrk4oj4luwyr"]
+
+[ext_resource type="Resource" uid="uid://6algplf0ai48" path="res://game/contents/abilities/phone_ability.tres" id="1_w2afe"]
+[ext_resource type="Texture2D" uid="uid://0f6iks4yy0oj" path="res://game/art/items/phone.png" id="2_er6tl"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_w1u4g"]
+[ext_resource type="Resource" uid="uid://brrekheqla754" path="res://game/contents/tags/technology.tres" id="4_dv43v"]
+
+[resource]
+script = ExtResource("3_w1u4g")
+art = ExtResource("2_er6tl")
+name = "手机"
+description = null
+item_size = 1
+level = 0
+price = 0
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_dv43v")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_w2afe")])

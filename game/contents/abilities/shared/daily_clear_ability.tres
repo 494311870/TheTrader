@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dnop2p36ubnav"]
+
+[ext_resource type="Script" path="res://game/contents/abilities/shared/daily_clear_ability.gd" id="1_nfvfo"]
+
+[resource]
+script = ExtResource("1_nfvfo")
+trigger = 6
+description = "每天开始时，重置红利。"

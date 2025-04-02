@@ -8,10 +8,17 @@ var value:
 
 
 func _on_trigger()-> void:
-	var items: Array[ItemStats]        = get_desktop_items()
+	var items: Array[ItemStats]        = get_desktop_other_items()
 	var filter_items: Array[ItemStats] = items.filter(_has_tag)
+	filter_items.sort_custom(_sort_item)
+
 	if not filter_items.is_empty():
 		filter_items[0].price += value
+
+
+func _sort_item(a: ItemStats, b: ItemStats) -> int:
+	var slot := a.owner
+	return slot.get_start_index(a) <= slot.get_start_index(b)
 
 
 func _has_tag(item: ItemStats) -> bool:

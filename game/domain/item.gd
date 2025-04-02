@@ -10,6 +10,7 @@ enum Trigger{
 	DayStart = 6,
 }
 enum Size{
+	Invalid = 0,
 	Small = 1,
 	Medium = 2,
 	Large = 3,
@@ -21,3 +22,5 @@ enum Level{
 	Diamond = 4,
 	Legendary = 5
 }
+
+

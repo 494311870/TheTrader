@@ -35,12 +35,11 @@ func _sell_item(item_ui: ItemUI) -> void:
 	item_ui.queue_free()
 
 	_trigger_sell_abilities(item)
+	var item_price: int = item.price
 	item.deactivate_abilities()
 	item.owner.remove_item(item)
-	
 
-	_character_stats.gain_coins(item.price)
-
+	_character_stats.gain_coins(item_price)
 	_update_trader_items_stats()
 
 
@@ -59,12 +58,12 @@ func _buy_item(item_ui: ItemUI) ->void:
 	if _character_stats.is_owner(item_stats):
 		return
 	# buy
-	_character_stats.lose_coins(item_stats.price)
+	_character_stats.buy_item(item_stats)
 	if item_stats.is_level_up:
 		upgrade_item(item_ui)
 		return
 	# 
-	item_stats.price /= 2
+	item_stats.price = item_stats.get_base_price() / 2
 	item_stats.coin_not_enough = false
 	item_stats.activate_abilities(_character_stats)
 	_trigger_buy_abilities.call_deferred(item_stats)
@@ -77,8 +76,7 @@ func upgrade_item(item_ui: ItemUI) -> void:
 	var item_stats: ItemStats     = item_ui.stats
 	var character_item: ItemStats = _character_stats.find_same_item(item_stats.id)
 	character_item.level_up()
-	_character_stats.trigger_items_abilities(Item.Trigger.SlotChanged)
-	_trigger_buy_abilities.call_deferred(character_item)
+	_trigger_buy_abilities(character_item)
 
 
 func _on_character_slot_changed() -> void:
@@ -91,6 +89,8 @@ func _trigger_buy_abilities(item: ItemStats) -> void:
 	other_items.erase(item)
 	for other_item in other_items:
 		other_item.trigger_abilities(Item.Trigger.OtherBuy)
+
+	_character_stats.trigger_items_abilities(Item.Trigger.SlotChanged)
 
 
 func _trigger_sell_abilities(item: ItemStats) -> void:

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://bycjkqqnhbskt"]
+
+[ext_resource type="Resource" uid="uid://nfphqx3uyqas" path="res://game/contents/abilities/canned_sardines_ability.tres" id="1_2odca"]
+[ext_resource type="Texture2D" uid="uid://bro6xgtavl804" path="res://game/art/items/canned_sardines.png" id="2_kfbao"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_4ivba"]
+[ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="4_80umy"]
+
+[resource]
+script = ExtResource("3_4ivba")
+art = ExtResource("2_kfbao")
+name = "沙丁鱼罐头"
+description = null
+item_size = 1
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_80umy")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_2odca")])
