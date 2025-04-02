@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=18 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
 [ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://dab3iyro08f4o" path="res://game/scenes/main/run_ui.tscn" id="13_q2itg"]
 [ext_resource type="PackedScene" uid="uid://m21etf8xpusx" path="res://game/scenes/ui/item_tool_tip_ui.tscn" id="14_gyg4y"]
 [ext_resource type="PackedScene" uid="uid://c47pg4limod2j" path="res://game/scenes/ui/settlement_ui.tscn" id="14_jkdo5"]
+[ext_resource type="AudioStream" uid="uid://bdn34xn16lkh7" path="res://game/audio/bgm/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.ogg" id="15_6y0wt"]
+[ext_resource type="AudioStream" uid="uid://cvl7yyd2b7bps" path="res://game/audio/se/buy_sell_01.wav" id="16_wbwnr"]
 
 [sub_resource type="Resource" id="Resource_lpxqp"]
 script = ExtResource("5_ov3pa")
@@ -31,9 +33,10 @@ metadata/_edit_lock_ = true
 
 [node name="Handlers" type="Node" parent="."]
 
-[node name="PlayerHandler" type="Node" parent="Handlers"]
+[node name="PlayerHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("SEPlayer")]
 script = ExtResource("6_6y3je")
 character_template = ExtResource("7_fn1df")
+SEPlayer = NodePath("../../SEPlayer")
 
 [node name="MainHandler" type="Node" parent="Handlers"]
 script = ExtResource("2_q014j")
@@ -96,6 +99,14 @@ offset_top = 10.0
 offset_right = 212.0
 offset_bottom = 283.0
 grow_horizontal = 2
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6y0wt")
+volume_db = -10.0
+autoplay = true
+
+[node name="SEPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_wbwnr")
 
 [connection signal="show_show_requested" from="Handlers/MainHandler" to="CanvasLayer2/SettlementUI" method="show_settlement"]
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/PlayerHandler" method="update_trader"]

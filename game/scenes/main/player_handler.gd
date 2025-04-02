@@ -1,10 +1,10 @@
 extends Node
 
 @export var character_template: CharacterStats
+@export var SEPlayer: AudioStreamPlayer
 
 @onready var _player_ui: PlayerUI = %PlayerUI
 @onready var _backpack_ui: BackpackUI = %BackpackUI
-
 var _character_stats: CharacterStats
 
 
@@ -42,6 +42,8 @@ func _sell_item(item_ui: ItemUI) -> void:
 	_character_stats.gain_coins(item_price)
 	_update_trader_items_stats()
 
+	_play_coin_sound()
+
 
 func _update_trader_items_stats() -> void:
 	var trader: TraderStats = _character_stats.current_trader
@@ -57,6 +59,7 @@ func _buy_item(item_ui: ItemUI) ->void:
 	var item_stats: ItemStats = item_ui.stats
 	if _character_stats.is_owner(item_stats):
 		return
+	_play_coin_sound()
 	# buy
 	_character_stats.buy_item(item_stats)
 	if item_stats.is_level_up:
@@ -102,3 +105,8 @@ func _trigger_sell_abilities(item: ItemStats) -> void:
 
 
 	
+func _play_coin_sound() -> void:
+	if not SEPlayer:
+		return
+		
+	SEPlayer.play()

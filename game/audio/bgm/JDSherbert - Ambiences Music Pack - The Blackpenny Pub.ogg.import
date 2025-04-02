@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdn34xn16lkh7"
+path="res://.godot/imported/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.ogg-ddc8a31c451fcd58a2be20c5df69e172.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/audio/bgm/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.ogg"
+dest_files=["res://.godot/imported/JDSherbert - Ambiences Music Pack - The Blackpenny Pub.ogg-ddc8a31c451fcd58a2be20c5df69e172.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
