@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kftu2stv3ixm"
-path="res://.godot/imported/border_1.png-dffbb6221399f40088880b2fe8de0016.ctex"
+uid="uid://brjvevys5krp6"
+path="res://.godot/imported/structure_house.png-068a7b29e3f0606416de5ff17b643824.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/art/border_1.png"
-dest_files=["res://.godot/imported/border_1.png-dffbb6221399f40088880b2fe8de0016.ctex"]
+source_file="res://game/art/icons/structure_house.png"
+dest_files=["res://.godot/imported/structure_house.png-068a7b29e3f0606416de5ff17b643824.ctex"]
 
 [params]
 

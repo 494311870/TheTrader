@@ -1,0 +1,249 @@
+[gd_scene load_steps=9 format=3 uid="uid://cirqluldepuy0"]
+
+[ext_resource type="Texture2D" uid="uid://dlgs3pyxw7vbe" path="res://game/art/pictures/guide.png" id="1_fj0n2"]
+[ext_resource type="Script" path="res://game/scenes/guide/guide.gd" id="1_p1k35"]
+[ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_q0n3p"]
+[ext_resource type="Texture2D" uid="uid://brjvevys5krp6" path="res://game/art/icons/structure_house.png" id="3_x3pjq"]
+
+[sub_resource type="Animation" id="Animation_twfmw"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridContainer/ColorRect1:color:a")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GridContainer/ColorRect2:color:a")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridContainer/ColorRect3:color:a")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridContainer/ColorRect4:color:a")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_os4fa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridContainer/ColorRect1:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GridContainer/ColorRect2:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridContainer/ColorRect3:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridContainer/ColorRect4:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u0lsc"]
+_data = {
+"RESET": SubResource("Animation_os4fa"),
+"default": SubResource("Animation_twfmw")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4w0o"]
+
+[node name="Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1k35")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_q0n3p")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_fj0n2")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="ColorRect1" type="ColorRect" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect/GridContainer"]
+custom_minimum_size = Vector2(672, 384)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect/GridContainer"]
+custom_minimum_size = Vector2(672, 384)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect/GridContainer"]
+custom_minimum_size = Vector2(672, 384)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect/GridContainer"]
+custom_minimum_size = Vector2(672, 384)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/CenterContainer/TextureRect"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_u0lsc")
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"TextLabel"
+text = "你是一名独立游戏开发者，毕业之后，你回到家乡，在自己的房间里开发游戏。
+但这个过程远比你想象的要困难许多，你不得不想方设法维持生计。
+你决定去镇上摆摊，这件事应该没有那么难吧，至少把摊位转让给你的那个人是这么说的。
+“低买高卖，他买我卖，泪水打湿拼好摊，发誓要挣一百万。”
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w4w0o")
+
+[node name="StartButton" type="Button" parent="Start"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Start"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="Start/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_x3pjq")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="Start/StartButton" to="." method="_on_start_button_pressed"]
