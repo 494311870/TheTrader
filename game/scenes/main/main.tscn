@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=21 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
 [ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dxy63pkp6pbxb" path="res://game/scenes/players/player_ui.tscn" id="7_t02in"]
 [ext_resource type="PackedScene" uid="uid://dqgoxwdrv0sej" path="res://game/scenes/players/backpack_ui.tscn" id="8_3lbgv"]
 [ext_resource type="Script" path="res://game/scenes/main/seller.gd" id="12_bc1jl"]
+[ext_resource type="Texture2D" uid="uid://ckdvb3us43wur" path="res://game/art/icons/token_add.png" id="12_wpb45"]
 [ext_resource type="PackedScene" uid="uid://dab3iyro08f4o" path="res://game/scenes/main/run_ui.tscn" id="13_q2itg"]
 [ext_resource type="PackedScene" uid="uid://m21etf8xpusx" path="res://game/scenes/ui/item_tool_tip_ui.tscn" id="14_gyg4y"]
 [ext_resource type="PackedScene" uid="uid://c47pg4limod2j" path="res://game/scenes/ui/settlement_ui.tscn" id="14_jkdo5"]
@@ -21,6 +22,14 @@
 script = ExtResource("5_ov3pa")
 _dirPath = "res://game/contents/items"
 _pool = Array[Resource("res://game/domain/item_stats.gd")]([])
+
+[sub_resource type="Gradient" id="Gradient_w742u"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.843, 0, 0.7)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mm41w"]
+gradient = SubResource("Gradient_w742u")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
 
 [node name="Main" type="Node2D"]
 
@@ -66,6 +75,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Seller" type="Control" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 3
 anchors_preset = 10
@@ -74,6 +84,28 @@ offset_bottom = 280.0
 grow_horizontal = 2
 mouse_filter = 2
 script = ExtResource("12_bc1jl")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Seller"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_mm41w")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Seller"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 64.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("12_wpb45")
 
 [node name="RunUI" parent="CanvasLayer" instance=ExtResource("13_q2itg")]
 unique_name_in_owner = true
@@ -91,6 +123,7 @@ visible = false
 [node name="ToolTipLayer" type="CanvasLayer" parent="."]
 
 [node name="ItemToolTipUI" parent="ToolTipLayer" instance=ExtResource("14_gyg4y")]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -115,6 +148,7 @@ stream = ExtResource("16_wbwnr")
 [connection signal="item_level_up_requested" from="CanvasLayer/TraderUI" to="Handlers/PlayerHandler" method="_buy_item"]
 [connection signal="leave_requested" from="CanvasLayer/TraderUI" to="Handlers/MainHandler" method="_on_leave_requested"]
 [connection signal="show_item_tool_tip_requested" from="CanvasLayer/TraderUI" to="ToolTipLayer/ItemToolTipUI" method="show_item"]
+[connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/TraderUI" method="_on_backpack_clicked"]
 [connection signal="backpack_clicked" from="CanvasLayer/PlayerUI" to="CanvasLayer/BackpackUI" method="_on_backpack_clicked"]
 [connection signal="before_drop_item" from="CanvasLayer/PlayerUI" to="Handlers/PlayerHandler" method="_buy_item"]
 [connection signal="hide_item_tool_tip_requested" from="CanvasLayer/PlayerUI" to="ToolTipLayer/ItemToolTipUI" method="hide_tool_tip"]

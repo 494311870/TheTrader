@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dvnqwgwujtomw"]
+
+[ext_resource type="Script" path="res://game/contents/abilities/balance_ability.gd" id="1_831kp"]
+[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_hv5w2"]
+
+[sub_resource type="Resource" id="Resource_nlkfl"]
+script = ExtResource("1_hv5w2")
+base_value = 1
+step_value = 1
+
+[sub_resource type="Resource" id="Resource_mnuym"]
+script = ExtResource("1_hv5w2")
+base_value = 4
+step_value = 4
+
+[resource]
+script = ExtResource("1_831kp")
+_value = SubResource("Resource_mnuym")
+_difference = SubResource("Resource_nlkfl")
+trigger = 5
+description = "如果相邻的物品价值刚好差{0}，获得+{1}红利。"

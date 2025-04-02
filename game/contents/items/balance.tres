@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://bqfx7ktixkaip"]
+
+[ext_resource type="Texture2D" uid="uid://ur4c8qpxcm2x" path="res://game/art/items/balance.png" id="1_ri3wy"]
+[ext_resource type="Resource" uid="uid://dvnqwgwujtomw" path="res://game/contents/abilities/balance_ability.tres" id="1_uiof5"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_1elsf"]
+[ext_resource type="Resource" uid="uid://ce3ycjh83cb3y" path="res://game/contents/tags/tool.tres" id="3_ciqf4"]
+
+[resource]
+script = ExtResource("2_1elsf")
+art = ExtResource("1_ri3wy")
+name = "公平秤"
+description = null
+item_size = 2
+level = null
+price = null
+bonus = null
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_ciqf4")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_uiof5")])

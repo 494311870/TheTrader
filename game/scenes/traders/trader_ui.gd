@@ -96,8 +96,12 @@ func _update_refresh_price():
 
 
 func _on_leave_button_pressed():
-	hide()
+#	hide()
 	leave_requested.emit()
+
+
+func _on_backpack_clicked():
+	visible = not visible
 
 
 func _show_item_tool_tip(item_ui: ItemUI) -> void:
@@ -106,3 +110,4 @@ func _show_item_tool_tip(item_ui: ItemUI) -> void:
 
 func _hide_item_tool_tip()-> void:
 	hide_item_tool_tip_requested.emit()
+

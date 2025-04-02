@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://bodh60sind455" path="res://game/art/faces/1743467541098.png" id="1_6m44y"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="2_iuv2p"]
-[ext_resource type="Resource" uid="uid://j6gdus3251q5" path="res://game/contents/tags/drink.tres" id="3_2hht6"]
+[ext_resource type="Resource" uid="uid://brrekheqla754" path="res://game/contents/tags/technology.tres" id="2_xecmh"]
 [ext_resource type="Script" path="res://game/domain/item_generator.gd" id="3_76pav"]
+[ext_resource type="Resource" uid="uid://djnhs8j6hr8eh" path="res://game/contents/tags/assets.tres" id="3_du6tl"]
 [ext_resource type="Script" path="res://game/domain/trader_stats.gd" id="4_kxqf8"]
-[ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="4_rf7r5"]
 
 [sub_resource type="Resource" id="Resource_73m02"]
 script = ExtResource("3_76pav")
-generate_amount = 3
-filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("2_iuv2p"), ExtResource("3_2hht6"), ExtResource("4_rf7r5")])
+generate_amount = 4
+filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("2_xecmh"), ExtResource("3_du6tl"), ExtResource("2_iuv2p")])
 
 [resource]
 script = ExtResource("4_kxqf8")
