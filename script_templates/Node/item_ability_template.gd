@@ -5,7 +5,7 @@
 var value: int:
 	get: return _value.get_value(owner.level)
 
-func _on_trigger():
+func _on_trigger()-> void:
 	print("this happens once when trigger")
 
 

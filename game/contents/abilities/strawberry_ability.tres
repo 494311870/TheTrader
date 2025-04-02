@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dtg7uhoxc7bqj"]
+
+[ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="1_iox52"]
+[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="2_ucbok"]
+[ext_resource type="Script" path="res://game/contents/abilities/shared/first_gain_price_ability.gd" id="3_sg6j7"]
+
+[sub_resource type="Resource" id="Resource_l4p1x"]
+script = ExtResource("2_ucbok")
+base_value = 1
+step_value = 1
+
+[resource]
+script = ExtResource("3_sg6j7")
+_value = SubResource("Resource_l4p1x")
+_item_tag = ExtResource("1_iox52")
+trigger = 3
+description = "出售时，最左侧的{0}获得+{1}价值。"

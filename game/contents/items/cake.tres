@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://hnv0v3schxiq"]
+
+[ext_resource type="Resource" uid="uid://cyc5q6tohwi7j" path="res://game/contents/abilities/cake_ability.tres" id="1_c6c8v"]
+[ext_resource type="Texture2D" uid="uid://dpx1eivdwxwjn" path="res://game/art/items/cake.png" id="2_nouca"]
+[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_rjvh6"]
+[ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="4_nf6m1"]
+
+[resource]
+script = ExtResource("2_rjvh6")
+art = ExtResource("2_nouca")
+name = "美味蛋糕"
+description = ""
+item_size = 2
+level = 0
+price = 0
+bonus = 0
+tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_nf6m1")])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_c6c8v")])

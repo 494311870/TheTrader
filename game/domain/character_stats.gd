@@ -95,4 +95,9 @@ func decrease_income(value: int) -> void:
 
 	income = max(income - value, 0)
 	stats_changed.emit()
-	
+
+
+func trigger_items_abilities(trigger: Item.Trigger):
+	var items: Array[ItemStats] = get_all_items()
+	for item in items:
+		item.trigger_abilities(trigger)

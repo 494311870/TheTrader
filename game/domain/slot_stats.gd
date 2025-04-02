@@ -216,8 +216,6 @@ func insert_item(target_item: ItemStats, to_index: int) -> void:
 
 func _raise_stats_changed() -> void:
 	stats_changed.emit()
-	for item in items:
-		item.trigger_abilities(Item.Trigger.SlotChanged)
 
 
 func _get_next_item_id() -> int:

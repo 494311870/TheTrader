@@ -27,6 +27,7 @@ func create_instance() -> ItemStats:
 
 	if instance.abilities:
 		for ability: ItemAbility in instance.abilities:
+			assert(ability != null, "%s has null ability" % instance.resource_path)
 			ability.owner = instance
 
 	return instance
@@ -70,15 +71,16 @@ func _get_size_tag() -> ItemTag:
 
 func get_base_price() -> int:
 	var level: int = self.level
-	var size: int = self.item_size
+	var size: int  = self.item_size
 	return size * 2 * level
 
 
-func activate_abilities() -> void:
+func activate_abilities(character: CharacterStats) -> void:
 	if not abilities:
 		return
 
 	for ability in abilities:
+		ability.character = character
 		ability.activate()
 
 

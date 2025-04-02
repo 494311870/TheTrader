@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ItemTag" load_steps=2 format=3 uid="uid://ce3ycjh83cb3y"]
+
+[ext_resource type="Script" path="res://game/domain/item_tag.gd" id="1_ctw8o"]
+
+[resource]
+script = ExtResource("1_ctw8o")
+name = "工具"
