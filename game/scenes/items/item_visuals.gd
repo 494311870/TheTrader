@@ -46,6 +46,10 @@ func update_stats() -> void:
 
 	if stats.is_level_up:
 		_animation_player.play("level_up")
+	else:
+		if _animation_player.is_playing():
+			_animation_player.stop()	
+			_animation_player.play("RESET")
 
 
 func update_item() -> void:
@@ -54,7 +58,6 @@ func update_item() -> void:
 		await ready
 
 	_icon.texture = stats.art
-	_animation_player.stop()
 
 	update_stats()
 

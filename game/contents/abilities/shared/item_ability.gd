@@ -16,6 +16,9 @@ func _on_trigger()-> void:
 func get_desktop_items() -> Array[ItemStats]:
 	return character.desktop.items
 
+func get_all_items() -> Array[ItemStats]:
+	return character.get_all_items()
+
 func get_other_items() -> Array[ItemStats]:
 	var result: Array[ItemStats] = character.get_all_items()
 	result.erase(owner)

@@ -2,10 +2,13 @@
 extends Resource
 
 signal stats_changed
+signal new_item_added(item: ItemStats)
 @export var desktop: SlotStats
 @export var backpack: SlotStats
 @export var coin: int
 @export var income: int
+
+var current_trader: TraderStats
 
 
 func create_instance() -> CharacterStats:
@@ -101,3 +104,12 @@ func trigger_items_abilities(trigger: Item.Trigger):
 	var items: Array[ItemStats] = get_all_items()
 	for item in items:
 		item.trigger_abilities(trigger)
+
+
+func add_new_item(item: ItemStats) -> void:
+	if desktop.get_space() >= item.item_size:
+		desktop.insert_item(item, 0)
+		new_item_added.emit(item)
+	elif backpack.get_space() >= item.item_size:
+		backpack.insert_item(item, 0)
+		new_item_added.emit(item)

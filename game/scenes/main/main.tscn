@@ -98,6 +98,7 @@ offset_bottom = 283.0
 grow_horizontal = 2
 
 [connection signal="show_show_requested" from="Handlers/MainHandler" to="CanvasLayer2/SettlementUI" method="show_settlement"]
+[connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/PlayerHandler" method="update_trader"]
 [connection signal="show_trader_requested" from="Handlers/MainHandler" to="Handlers/TraderHandler" method="_show_trader"]
 [connection signal="hide_item_tool_tip_requested" from="CanvasLayer/TraderUI" to="ToolTipLayer/ItemToolTipUI" method="hide_tool_tip"]
 [connection signal="item_level_up_requested" from="CanvasLayer/TraderUI" to="Handlers/PlayerHandler" method="_buy_item"]

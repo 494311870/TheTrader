@@ -107,6 +107,10 @@ func get_right_item(item: ItemStats) -> ItemStats:
 	return null
 
 
+func get_space() -> int:
+	return _slots.count(-1)
+
+
 func has_enough_space_after(start_index: int, item: ItemStats) -> bool:
 	var space          := 0
 	var item_size: int =  item.item_size
@@ -123,8 +127,7 @@ func has_enough_space_after(start_index: int, item: ItemStats) -> bool:
 	return false
 
 
-func has_contiguous_space_after(start_index: int, item: ItemStats) -> bool:
-	var item_size: int   = item.item_size
+func has_contiguous_space_after(start_index: int, item_size: int) -> bool:
 	var index_begin: int = start_index
 	var index_end: int   = index_begin
 
@@ -167,6 +170,7 @@ func put_item(item: ItemStats, start_index: int) -> void:
 		_slots[start_index + i] = item.id_in_slot
 
 	_raise_stats_changed()
+
 
 func remove_item(item: ItemStats) -> void:
 	var start_index: int = _slots.find(item.id_in_slot)

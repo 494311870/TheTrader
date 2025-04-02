@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cc4veb6i1sph6"]
+
+[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_2decu"]
+[ext_resource type="Script" path="res://game/contents/abilities/bread_ability.gd" id="1_cxkxe"]
+[ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="1_kb0vl"]
+
+[sub_resource type="Resource" id="Resource_vpuon"]
+script = ExtResource("1_2decu")
+base_value = 2
+step_value = 2
+
+[resource]
+script = ExtResource("1_cxkxe")
+_value = SubResource("Resource_vpuon")
+_item_tag = ExtResource("1_kb0vl")
+trigger = 5
+description = "如果这是你唯一的{0}，获得+{1}红利。"

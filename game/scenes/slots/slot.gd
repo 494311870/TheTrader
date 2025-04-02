@@ -49,8 +49,7 @@ func update_slot() -> void:
 		child.queue_free()
 
 	for item in stats.items:
-		var item_ui: ItemUI = _create_item_ui(item)
-		add_child(item_ui)
+		add_item(item)
 
 	var require_size: Vector2 = stats.slot_quantity * slot_size
 	var start_x: float        = self.size.x / 2 - require_size.x / 2
@@ -65,6 +64,11 @@ func update_stats() -> void:
 
 	update_items_position()
 	_sort_children()
+
+
+func add_item(item: ItemStats) -> void:
+	var item_ui: ItemUI = _create_item_ui(item)
+	add_child(item_ui)
 
 
 func _create_item_ui(item_stats: ItemStats) -> ItemUI:
@@ -144,28 +148,35 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 		return false
 
 	var drop_item: ItemUI = data.item
+	var origin_slot: Slot = drop_item.get_parent() as Slot
+	var target_slot: Slot = self
 	var target_position   = at_position - data.offset
 	var slot_index: int   = _find_nearest_index(target_position)
 
-	if drop_item.get_parent() != self:
-		if owner.get_meta("disable_drop"):
+	if origin_slot != target_slot:
+		if owner.get_meta("disable_drop", false):
 			return false
-
+	# check insert
 	var can_insert := stats.has_enough_space_after(slot_index, drop_item.stats)
-
 	if can_insert:
 		return true
-
-	if drop_item.get_parent() == self:
+	# check swap
+	if origin_slot == target_slot:
 		return false
 
-	return stats.has_contiguous_space_after(slot_index, drop_item.stats)
+	# 如果来源禁止放入，则不可以交换
+	if origin_slot.owner.get_meta("disable_drop", false):
+		if drop_item.stats.is_level_up:
+			return true
+		return false
+
+	return stats.has_contiguous_space_after(slot_index, drop_item.stats.item_size)
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var origin_slot: Slot = data.item.get_parent() as Slot
-	var target_slot: Slot = self
 	var drop_item: ItemUI = data.item
+	var origin_slot: Slot = drop_item.get_parent() as Slot
+	var target_slot: Slot = self
 	var target_position   = at_position - data.offset
 	var slot_index: int   = _find_nearest_index(target_position)
 
@@ -176,7 +187,7 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	else:
 		if drop_item.stats.is_level_up:
 			return
-		
+
 		if stats.has_enough_space_after(slot_index, drop_item.stats):
 			_change_location(drop_item, slot_index)
 		else:

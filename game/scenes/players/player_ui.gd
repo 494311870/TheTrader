@@ -24,6 +24,8 @@ func _ready():
 func _set_stats(value: CharacterStats) -> void:
 	if stats != null:
 		stats.stats_changed.disconnect(_update_stats)
+		stats.new_item_added.disconnect(_on_new_item_added)
+		
 
 	stats = value
 	if stats == null:
@@ -31,6 +33,7 @@ func _set_stats(value: CharacterStats) -> void:
 
 	if not stats.stats_changed.is_connected(_update_stats):
 		stats.stats_changed.connect(_update_stats)
+		stats.new_item_added.connect(_on_new_item_added)
 
 	if not is_node_ready():
 		await ready
@@ -43,6 +46,9 @@ func _update_stats() -> void:
 #	income_label.text = str(stats.income)
 	coin_label.text = str(stats.coin)
 
+func _on_new_item_added(item: ItemStats) -> void:
+	if item.owner == slot_ui.stats:
+		slot_ui.add_item(item)
 
 func _on_backpack_button_pressed() -> void:
 	backpack_clicked.emit()

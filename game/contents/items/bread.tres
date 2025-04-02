@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://mmaf2yv6fwmx"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://mmaf2yv6fwmx"]
 
+[ext_resource type="Resource" uid="uid://cc4veb6i1sph6" path="res://game/contents/abilities/bread_ability.tres" id="1_u64mx"]
 [ext_resource type="Texture2D" uid="uid://br462yvu45503" path="res://game/art/items/bread.png" id="1_v08x6"]
 [ext_resource type="Script" path="res://game/domain/item_stats.gd" id="2_jxs5c"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="3_0hoim"]
@@ -8,10 +9,10 @@
 script = ExtResource("2_jxs5c")
 art = ExtResource("1_v08x6")
 name = "面包"
-description = ""
+description = null
 item_size = 2
-level = 0
-price = 0
-bonus = 0
+level = null
+price = null
+bonus = null
 tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_0hoim")])
-abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])
+abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_u64mx")])

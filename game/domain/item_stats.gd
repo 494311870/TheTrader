@@ -19,18 +19,31 @@ var id: String: get = _get_id
 var id_in_slot: int
 var owner: SlotStats
 var coin_not_enough: bool
-var is_level_up: bool
+var is_level_up: bool: set = _set_is_level_up
 
 
 func create_instance() -> ItemStats:
 	var instance: ItemStats = duplicate()
 
-	if instance.abilities:
-		for ability: ItemAbility in instance.abilities:
-			assert(ability != null, "%s has null ability" % instance.resource_path)
+	if self.abilities:
+		instance.abilities = duplicate_abilities()
+		for ability in instance.abilities:
 			ability.owner = instance
 
 	return instance
+
+
+func duplicate_abilities() -> Array[ItemAbility]:
+	if not abilities:
+		return []
+
+	var result: Array[ItemAbility] = []
+	for ability: ItemAbility in self.abilities:
+		assert(ability != null, "%s has null ability" % self.resource_path)
+		var instance: ItemAbility = ability.duplicate()
+		result.append(instance)
+
+	return result
 
 
 func _get_id() -> String:
@@ -44,6 +57,11 @@ func _set_price(value: int) -> void:
 
 func _set_bonus(value: int) -> void:
 	bonus = value
+	stats_changed.emit()
+
+
+func _set_is_level_up(value: bool) -> void:
+	is_level_up = value
 	stats_changed.emit()
 
 
@@ -70,9 +88,9 @@ func _get_size_tag() -> ItemTag:
 
 
 func get_base_price() -> int:
-	var level: int = self.level
-	var size: int  = self.item_size
-	return size * 2 * level
+	var item_level: int = self.level
+	var size: int       = self.item_size
+	return size * 2 * item_level
 
 
 func activate_abilities(character: CharacterStats) -> void:
@@ -102,7 +120,7 @@ func trigger_abilities(trigger: Item.Trigger) -> void:
 
 
 func level_up():
-	level += 1
+	self.level = self.level + 1 as Item.Level
 	price += self.item_size
 
 
@@ -115,6 +133,9 @@ func get_other_items() -> Array[ItemStats]:
 	result.append_array(owner.items)
 	result.erase(self)
 	return result
+
+
+
 
 
 

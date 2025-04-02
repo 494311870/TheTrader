@@ -10,8 +10,7 @@ var value:
 func _on_trigger() -> void:
 	var items: Array[ItemStats] = get_adjacent_items()
 	var count: int              = items.filter(_has_tag).size()
-	if count == 2:
-		owner.bonus = value
+	owner.bonus = value if count == 2 else 0
 
 
 func _has_tag(item: ItemStats) -> bool:
@@ -19,4 +18,4 @@ func _has_tag(item: ItemStats) -> bool:
 
 
 func get_description() -> String:
-	return description.format([_item_tag,value])
+	return description.format([_item_tag, value])

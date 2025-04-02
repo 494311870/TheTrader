@@ -14,14 +14,13 @@ func _ready() -> void:
 	_customer = owner.get_meta("player_stats")
 
 
-
 func _show_trader(trader_stats: TraderStats) -> void:
 	_trader_stats = trader_stats
 	if not is_node_ready():
 		await ready
 
+	_trader_stats.set_up()
 	_trader_stats.item_pool = item_pool
-	_trader_stats.refresh_desktop()
 
 	trader_ui.stats = _trader_stats
 	trader_ui.customer = _customer
