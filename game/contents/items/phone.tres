@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://dfrk4oj4luwyr"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=7 format=3 uid="uid://dfrk4oj4luwyr"]
 
+[ext_resource type="Script" uid="uid://dgptfpy3yd0em" path="res://game/contents/abilities/shared/item_ability.gd" id="1_q3is2"]
 [ext_resource type="Resource" uid="uid://6algplf0ai48" path="res://game/contents/abilities/phone_ability.tres" id="1_w2afe"]
 [ext_resource type="Texture2D" uid="uid://0f6iks4yy0oj" path="res://game/art/items/phone.png" id="2_er6tl"]
-[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_w1u4g"]
+[ext_resource type="Script" uid="uid://er2gov1be1u1" path="res://game/domain/item_stats.gd" id="3_w1u4g"]
 [ext_resource type="Resource" uid="uid://brrekheqla754" path="res://game/contents/tags/technology.tres" id="4_dv43v"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="5_u5c4h"]
 
 [resource]
 script = ExtResource("3_w1u4g")
@@ -14,5 +16,5 @@ item_size = 1
 level = 0
 price = 0
 bonus = null
-tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_dv43v")])
-abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_w2afe")])
+tags = Array[ExtResource("5_u5c4h")]([ExtResource("4_dv43v")])
+abilities = Array[ExtResource("1_q3is2")]([ExtResource("1_w2afe")])

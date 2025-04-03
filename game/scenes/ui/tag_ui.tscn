@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxb624aufdbyn"]
 
-[ext_resource type="Script" path="res://game/scenes/ui/tag_ui.gd" id="1_1gtla"]
+[ext_resource type="Script" uid="uid://cit6sqgoxehic" path="res://game/scenes/ui/tag_ui.gd" id="1_1gtla"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq627"]
 content_margin_left = 10.0

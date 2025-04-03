@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b6yiasf0qgok4"]
 
-[ext_resource type="Script" path="res://game/scenes/slots/slot_ui.gd" id="1_ennk5"]
-[ext_resource type="Script" path="res://game/scenes/slots/slot.gd" id="2_ux1qj"]
+[ext_resource type="Script" uid="uid://cwuoall0ae0xy" path="res://game/scenes/slots/slot_ui.gd" id="1_ennk5"]
+[ext_resource type="Script" uid="uid://c6q3t4x8hxkg1" path="res://game/scenes/slots/slot.gd" id="2_ux1qj"]
 [ext_resource type="Texture2D" uid="uid://ku7a2mnr7d7x" path="res://game/art/pictures/desktop.png" id="2_vsvy1"]
 [ext_resource type="PackedScene" uid="uid://dvhqwfe8lvfqx" path="res://game/scenes/items/small_item_ui.tscn" id="4_d3t4o"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://caa7fgruxr5xu"]
 
-[ext_resource type="Script" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
+[ext_resource type="Script" uid="uid://d4ep7orsjujr7" path="res://game/scenes/items/item_visuals.gd" id="1_mhn8x"]
 [ext_resource type="Texture2D" uid="uid://bx3nfwcff2las" path="res://game/art/ui/mask.png" id="2_b3lv5"]
 [ext_resource type="Texture2D" uid="uid://c12m71wiiwiu7" path="res://game/art/items/lighter.png" id="3_6qtoy"]
 [ext_resource type="Texture2D" uid="uid://cxs2yi6fkndfl" path="res://game/art/borders/bronze.png" id="4_gk1l0"]
@@ -110,8 +110,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sldlj"]
 _data = {
-"RESET": SubResource("Animation_yojt0"),
-"level_up": SubResource("Animation_ocpuq")
+&"RESET": SubResource("Animation_yojt0"),
+&"level_up": SubResource("Animation_ocpuq")
 }
 
 [node name="ItemVisuals" type="Control"]
@@ -231,5 +231,5 @@ texture = ExtResource("7_kgcqo")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_sldlj")
+&"": SubResource("AnimationLibrary_sldlj")
 }

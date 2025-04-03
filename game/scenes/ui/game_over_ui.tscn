@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cn5simgnu5kcv"]
 
-[ext_resource type="Script" path="res://game/scenes/ui/game_over_ui.gd" id="1_8toqr"]
+[ext_resource type="Script" uid="uid://bxi8oj55uma2" path="res://game/scenes/ui/game_over_ui.gd" id="1_8toqr"]
 [ext_resource type="Texture2D" uid="uid://b2821tfhjb1cg" path="res://game/art/icons/arrow_clockwise.png" id="1_t48f1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt3qg"]

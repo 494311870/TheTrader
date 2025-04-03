@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=6 format=3 uid="uid://kvpfxgl2vq01"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=8 format=3 uid="uid://kvpfxgl2vq01"]
 
 [ext_resource type="Resource" uid="uid://ccytboe7t5gd" path="res://game/contents/abilities/mobile_van_ability.tres" id="1_58x68"]
+[ext_resource type="Script" uid="uid://dgptfpy3yd0em" path="res://game/contents/abilities/shared/item_ability.gd" id="1_rg5v8"]
 [ext_resource type="Texture2D" uid="uid://d3pwy2odgs50x" path="res://game/art/items/mobile_van.png" id="2_4el0v"]
 [ext_resource type="Resource" uid="uid://dnop2p36ubnav" path="res://game/contents/abilities/shared/daily_clear_ability.tres" id="2_hbvio"]
-[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_ukhoy"]
+[ext_resource type="Script" uid="uid://er2gov1be1u1" path="res://game/domain/item_stats.gd" id="3_ukhoy"]
 [ext_resource type="Resource" uid="uid://djnhs8j6hr8eh" path="res://game/contents/tags/assets.tres" id="4_y02y0"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="6_85ydg"]
 
 [resource]
 script = ExtResource("3_ukhoy")
@@ -15,5 +17,5 @@ item_size = 2
 level = null
 price = null
 bonus = null
-tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_y02y0")])
-abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_58x68"), ExtResource("2_hbvio")])
+tags = Array[ExtResource("6_85ydg")]([ExtResource("4_y02y0")])
+abilities = Array[ExtResource("1_rg5v8")]([ExtResource("1_58x68"), ExtResource("2_hbvio")])

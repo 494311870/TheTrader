@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://cg643x6c2on08"]
 
-[ext_resource type="Script" path="res://game/contents/abilities/shared/zero_value_ability.gd" id="1_cmmju"]
+[ext_resource type="Script" uid="uid://wfcctb0s87oh" path="res://game/contents/abilities/shared/zero_value_ability.gd" id="1_cmmju"]
 
 [resource]
 script = ExtResource("1_cmmju")

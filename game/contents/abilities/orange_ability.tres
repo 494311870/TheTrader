@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://dn8d1t6eh4qti"]
 
 [ext_resource type="Resource" uid="uid://j6gdus3251q5" path="res://game/contents/tags/drink.tres" id="1_78hd7"]
-[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="2_cd7nc"]
-[ext_resource type="Script" path="res://game/contents/abilities/shared/first_gain_price_ability.gd" id="3_nncye"]
+[ext_resource type="Script" uid="uid://lxn8qclqulgs" path="res://game/domain/step_upgradable_value.gd" id="2_cd7nc"]
+[ext_resource type="Script" uid="uid://deu6jhvvc3g7j" path="res://game/contents/abilities/shared/first_gain_price_ability.gd" id="3_nncye"]
 
 [sub_resource type="Resource" id="Resource_l4p1x"]
 script = ExtResource("2_cd7nc")

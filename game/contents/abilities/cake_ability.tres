@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=3 uid="uid://cyc5q6tohwi7j"]
 
-[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_0qkal"]
-[ext_resource type="Script" path="res://game/contents/abilities/cake_ability.gd" id="1_jnj2e"]
+[ext_resource type="Script" uid="uid://lxn8qclqulgs" path="res://game/domain/step_upgradable_value.gd" id="1_0qkal"]
+[ext_resource type="Script" uid="uid://rn2017a7ewli" path="res://game/contents/abilities/cake_ability.gd" id="1_jnj2e"]
 
 [sub_resource type="Resource" id="Resource_qnk15"]
 script = ExtResource("1_0qkal")

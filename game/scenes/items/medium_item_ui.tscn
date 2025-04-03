@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8rasa4dv6w0b"]
 
-[ext_resource type="Script" path="res://game/scenes/items/item_ui.gd" id="1_g1rmb"]
+[ext_resource type="Script" uid="uid://banol84xqdas8" path="res://game/scenes/items/item_ui.gd" id="1_g1rmb"]
 [ext_resource type="PackedScene" uid="uid://caa7fgruxr5xu" path="res://game/scenes/items/item_visuals.tscn" id="1_hd8xd"]
 
 [node name="MediumItemUI" type="Control"]

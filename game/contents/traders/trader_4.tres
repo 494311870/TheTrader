@@ -1,16 +1,17 @@
-[gd_resource type="Resource" script_class="TraderStats" load_steps=8 format=3 uid="uid://bkwrhqaqr6544"]
+[gd_resource type="Resource" script_class="TraderStats" load_steps=9 format=3 uid="uid://bkwrhqaqr6544"]
 
 [ext_resource type="Texture2D" uid="uid://bodh60sind455" path="res://game/art/faces/1743467541098.png" id="1_6m44y"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="2_iuv2p"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="2_o5sdl"]
 [ext_resource type="Resource" uid="uid://brrekheqla754" path="res://game/contents/tags/technology.tres" id="2_xecmh"]
-[ext_resource type="Script" path="res://game/domain/item_generator.gd" id="3_76pav"]
+[ext_resource type="Script" uid="uid://cwrp2pl0frcb" path="res://game/domain/item_generator.gd" id="3_76pav"]
 [ext_resource type="Resource" uid="uid://djnhs8j6hr8eh" path="res://game/contents/tags/assets.tres" id="3_du6tl"]
-[ext_resource type="Script" path="res://game/domain/trader_stats.gd" id="4_kxqf8"]
+[ext_resource type="Script" uid="uid://u6n2tl24qm4c" path="res://game/domain/trader_stats.gd" id="4_kxqf8"]
 
 [sub_resource type="Resource" id="Resource_73m02"]
 script = ExtResource("3_76pav")
 generate_amount = 4
-filter_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("2_xecmh"), ExtResource("3_du6tl"), ExtResource("2_iuv2p")])
+filter_tags = Array[ExtResource("2_o5sdl")]([ExtResource("2_xecmh"), ExtResource("3_du6tl"), ExtResource("2_iuv2p")])
 
 [resource]
 script = ExtResource("4_kxqf8")

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://bycjkqqnhbskt"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=7 format=3 uid="uid://bycjkqqnhbskt"]
 
 [ext_resource type="Resource" uid="uid://nfphqx3uyqas" path="res://game/contents/abilities/canned_sardines_ability.tres" id="1_2odca"]
+[ext_resource type="Script" uid="uid://dgptfpy3yd0em" path="res://game/contents/abilities/shared/item_ability.gd" id="1_yr0e1"]
 [ext_resource type="Texture2D" uid="uid://bro6xgtavl804" path="res://game/art/items/canned_sardines.png" id="2_kfbao"]
-[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_4ivba"]
+[ext_resource type="Script" uid="uid://er2gov1be1u1" path="res://game/domain/item_stats.gd" id="3_4ivba"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="4_80umy"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="5_eqc3y"]
 
 [resource]
 script = ExtResource("3_4ivba")
@@ -14,5 +16,5 @@ item_size = 1
 level = null
 price = null
 bonus = null
-tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("4_80umy")])
-abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([ExtResource("1_2odca")])
+tags = Array[ExtResource("5_eqc3y")]([ExtResource("4_80umy")])
+abilities = Array[ExtResource("1_yr0e1")]([ExtResource("1_2odca")])

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://dvnqwgwujtomw"]
 
-[ext_resource type="Script" path="res://game/contents/abilities/balance_ability.gd" id="1_831kp"]
-[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_hv5w2"]
+[ext_resource type="Script" uid="uid://b4jk3ig3dvpvj" path="res://game/contents/abilities/balance_ability.gd" id="1_831kp"]
+[ext_resource type="Script" uid="uid://lxn8qclqulgs" path="res://game/domain/step_upgradable_value.gd" id="1_hv5w2"]
 
 [sub_resource type="Resource" id="Resource_nlkfl"]
 script = ExtResource("1_hv5w2")

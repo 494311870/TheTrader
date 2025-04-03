@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqgoxwdrv0sej"]
 
 [ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="1_f6sas"]
-[ext_resource type="Script" path="res://game/scenes/players/backpack_ui.gd" id="1_pkcu3"]
+[ext_resource type="Script" uid="uid://b5rijs42genug" path="res://game/scenes/players/backpack_ui.gd" id="1_pkcu3"]
 [ext_resource type="Texture2D" uid="uid://ok44g81tvsr6" path="res://game/art/borders/1743390594439.png" id="2_3eyak"]
 [ext_resource type="Texture2D" uid="uid://cntkokwr3e84m" path="res://game/art/faces/1743409929246.png" id="3_e3axa"]
 

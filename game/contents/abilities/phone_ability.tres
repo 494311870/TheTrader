@@ -1,13 +1,14 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://6algplf0ai48"]
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://6algplf0ai48"]
 
 [ext_resource type="Resource" uid="uid://j6gdus3251q5" path="res://game/contents/tags/drink.tres" id="1_03387"]
-[ext_resource type="Script" path="res://game/contents/abilities/shared/gain_item_ability.gd" id="1_g0qg6"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="1_ftilj"]
+[ext_resource type="Script" uid="uid://bfobsehp5ng7v" path="res://game/contents/abilities/shared/gain_item_ability.gd" id="1_g0qg6"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="2_2s6bw"]
 [ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="3_6cox4"]
 
 [resource]
 script = ExtResource("1_g0qg6")
 _item_size = 1
-_item_tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("1_03387"), ExtResource("2_2s6bw"), ExtResource("3_6cox4")])
+_item_tags = Array[ExtResource("1_ftilj")]([ExtResource("1_03387"), ExtResource("2_2s6bw"), ExtResource("3_6cox4")])
 trigger = 6
 description = "每天开始时，随机获得一个{0}的{1}|{2}|{3}。"

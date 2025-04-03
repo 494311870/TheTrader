@@ -1,8 +1,8 @@
 [gd_resource type="Resource" load_steps=5 format=3 uid="uid://xlhjidrrd0j5"]
 
-[ext_resource type="Script" path="res://game/contents/abilities/pan_ability.gd" id="1_7ryp2"]
+[ext_resource type="Script" uid="uid://doiqdmg24b0ia" path="res://game/contents/abilities/pan_ability.gd" id="1_7ryp2"]
 [ext_resource type="Resource" uid="uid://ctp0c2iqjgpbq" path="res://game/contents/tags/food.tres" id="1_88mwh"]
-[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_wfab3"]
+[ext_resource type="Script" uid="uid://lxn8qclqulgs" path="res://game/domain/step_upgradable_value.gd" id="1_wfab3"]
 
 [sub_resource type="Resource" id="Resource_r3j5a"]
 script = ExtResource("1_wfab3")

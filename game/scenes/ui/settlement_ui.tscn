@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c47pg4limod2j"]
 
 [ext_resource type="Texture2D" uid="uid://bb8j7ixt3hro6" path="res://game/art/icons/arrow_right.png" id="1_mqb10"]
-[ext_resource type="Script" path="res://game/scenes/ui/settlement_ui.gd" id="1_pqp3a"]
+[ext_resource type="Script" uid="uid://05mxauaypw2w" path="res://game/scenes/ui/settlement_ui.gd" id="1_pqp3a"]
 [ext_resource type="Texture2D" uid="uid://b2821tfhjb1cg" path="res://game/art/icons/arrow_clockwise.png" id="2_ioedg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkph2"]

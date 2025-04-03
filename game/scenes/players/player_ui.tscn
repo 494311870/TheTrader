@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxy63pkp6pbxb"]
 
-[ext_resource type="Script" path="res://game/scenes/players/player_ui.gd" id="1_xrdcy"]
+[ext_resource type="Script" uid="uid://bxqjoqd440wx3" path="res://game/scenes/players/player_ui.gd" id="1_xrdcy"]
 [ext_resource type="PackedScene" uid="uid://b6yiasf0qgok4" path="res://game/scenes/slots/slot_ui.tscn" id="2_ynx73"]
 [ext_resource type="Texture2D" uid="uid://cxybba01no272" path="res://game/art/icons/pouch.png" id="3_snx1e"]
 [ext_resource type="Texture2D" uid="uid://ckdvb3us43wur" path="res://game/art/icons/token_add.png" id="4_dnyx4"]

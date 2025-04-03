@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dab3iyro08f4o"]
 
-[ext_resource type="Script" path="res://game/scenes/main/run_ui.gd" id="1_3fiav"]
+[ext_resource type="Script" uid="uid://dneyp7arp2ojp" path="res://game/scenes/main/run_ui.gd" id="1_3fiav"]
 [ext_resource type="Texture2D" uid="uid://b4pih53hoprfv" path="res://game/art/icons/flag_triangle.png" id="1_ys6a7"]
 [ext_resource type="Texture2D" uid="uid://bcnheervraj1s" path="res://game/art/icons/hourglass.png" id="2_uo58o"]
 

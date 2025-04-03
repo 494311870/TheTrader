@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=5 format=3 uid="uid://mp6h6a4lfbkk"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=7 format=3 uid="uid://mp6h6a4lfbkk"]
 
+[ext_resource type="Script" uid="uid://dgptfpy3yd0em" path="res://game/contents/abilities/shared/item_ability.gd" id="1_vmdxh"]
 [ext_resource type="Texture2D" uid="uid://bb85rb0nwq4we" path="res://game/art/items/fruit_juice.png" id="2_7txrh"]
 [ext_resource type="Resource" uid="uid://j6gdus3251q5" path="res://game/contents/tags/drink.tres" id="3_38nb8"]
-[ext_resource type="Script" path="res://game/domain/item_stats.gd" id="3_vh4p5"]
+[ext_resource type="Script" uid="uid://er2gov1be1u1" path="res://game/domain/item_stats.gd" id="3_vh4p5"]
+[ext_resource type="Script" uid="uid://dq8x1ekhw8jvi" path="res://game/domain/item_tag.gd" id="4_5vdsq"]
 [ext_resource type="Resource" uid="uid://byfyxog4dvnpg" path="res://game/contents/tags/fruit.tres" id="4_ptlie"]
 
 [resource]
@@ -14,5 +16,5 @@ item_size = 1
 level = null
 price = null
 bonus = null
-tags = Array[Resource("res://game/domain/item_tag.gd")]([ExtResource("3_38nb8"), ExtResource("4_ptlie")])
-abilities = Array[Resource("res://game/contents/abilities/shared/item_ability.gd")]([])
+tags = Array[ExtResource("4_5vdsq")]([ExtResource("3_38nb8"), ExtResource("4_ptlie")])
+abilities = Array[ExtResource("1_vmdxh")]([])

@@ -1,16 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://2gy51p43a8l1"]
+[gd_scene load_steps=22 format=3 uid="uid://2gy51p43a8l1"]
 
 [ext_resource type="Texture2D" uid="uid://dxawtkx3h78cs" path="res://game/art/pictures/background.png" id="1_yyioj"]
-[ext_resource type="Script" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
+[ext_resource type="Script" uid="uid://baw6ljujsyuhj" path="res://game/scenes/main/main_handler.gd" id="2_q014j"]
 [ext_resource type="PackedScene" uid="uid://dupn0g21i76x7" path="res://game/scenes/traders/trader_ui.tscn" id="2_uy2fy"]
-[ext_resource type="Script" path="res://game/scenes/main/trader_handler.gd" id="4_8fvy6"]
+[ext_resource type="Script" uid="uid://c15k41eqjrc1k" path="res://game/scenes/main/trader_handler.gd" id="4_8fvy6"]
 [ext_resource type="Resource" uid="uid://bmti12nqikmw0" path="res://game/contents/run_stats.tres" id="5_b2od2"]
-[ext_resource type="Script" path="res://game/domain/item_pool.gd" id="5_ov3pa"]
-[ext_resource type="Script" path="res://game/scenes/main/player_handler.gd" id="6_6y3je"]
+[ext_resource type="Script" uid="uid://xiurgrbvw5wv" path="res://game/domain/item_pool.gd" id="5_ov3pa"]
+[ext_resource type="Script" uid="uid://d1q3dv5bkeik8" path="res://game/scenes/main/player_handler.gd" id="6_6y3je"]
 [ext_resource type="Resource" uid="uid://cojiqrr88vkdu" path="res://game/contents/characters/player.tres" id="7_fn1df"]
+[ext_resource type="Script" uid="uid://er2gov1be1u1" path="res://game/domain/item_stats.gd" id="7_rt8vy"]
 [ext_resource type="PackedScene" uid="uid://dxy63pkp6pbxb" path="res://game/scenes/players/player_ui.tscn" id="7_t02in"]
 [ext_resource type="PackedScene" uid="uid://dqgoxwdrv0sej" path="res://game/scenes/players/backpack_ui.tscn" id="8_3lbgv"]
-[ext_resource type="Script" path="res://game/scenes/main/seller.gd" id="12_bc1jl"]
+[ext_resource type="Script" uid="uid://dwouiaeclcqj" path="res://game/scenes/main/seller.gd" id="12_bc1jl"]
 [ext_resource type="Texture2D" uid="uid://ckdvb3us43wur" path="res://game/art/icons/token_add.png" id="12_wpb45"]
 [ext_resource type="PackedScene" uid="uid://dab3iyro08f4o" path="res://game/scenes/main/run_ui.tscn" id="13_q2itg"]
 [ext_resource type="PackedScene" uid="uid://m21etf8xpusx" path="res://game/scenes/ui/item_tool_tip_ui.tscn" id="14_gyg4y"]
@@ -21,7 +22,7 @@
 [sub_resource type="Resource" id="Resource_lpxqp"]
 script = ExtResource("5_ov3pa")
 _dirPath = "res://game/contents/items"
-_pool = Array[Resource("res://game/domain/item_stats.gd")]([])
+_pool = Array[ExtResource("7_rt8vy")]([])
 
 [sub_resource type="Gradient" id="Gradient_w742u"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 0.843, 0, 0.7)

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=3 uid="uid://nfphqx3uyqas"]
 
-[ext_resource type="Script" path="res://game/domain/step_upgradable_value.gd" id="1_4oi5e"]
-[ext_resource type="Script" path="res://game/contents/abilities/canned_sardines_ability.gd" id="2_chiw8"]
+[ext_resource type="Script" uid="uid://lxn8qclqulgs" path="res://game/domain/step_upgradable_value.gd" id="1_4oi5e"]
+[ext_resource type="Script" uid="uid://vql7amrseiq0" path="res://game/contents/abilities/canned_sardines_ability.gd" id="2_chiw8"]
 
 [sub_resource type="Resource" id="Resource_ntc4p"]
 script = ExtResource("1_4oi5e")
@@ -11,5 +11,6 @@ step_value = 4
 [resource]
 script = ExtResource("2_chiw8")
 _value = SubResource("Resource_ntc4p")
+_item_amount = 7
 trigger = 5
 description = "如果你的桌面上至少有{0}个物品，获得+{1}红利。"

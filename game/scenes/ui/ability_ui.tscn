@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3tf0eom04er6"]
 
 [ext_resource type="Texture2D" uid="uid://bjy1i5x1ih2wg" path="res://game/art/icons/hexagon.png" id="1_2h2w6"]
-[ext_resource type="Script" path="res://game/scenes/ui/ability_ui.gd" id="1_wte8y"]
+[ext_resource type="Script" uid="uid://bj55i3ttxvhcp" path="res://game/scenes/ui/ability_ui.gd" id="1_wte8y"]
 
 [node name="AbilityUI" type="HBoxContainer"]
 offset_right = 37.0
