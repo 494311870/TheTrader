@@ -7,7 +7,7 @@ var value:
 
 
 func _on_trigger()-> void:
-	owner.bonus += 1
+	owner.bonus += value
 
 
 func get_description() -> String:
