@@ -1,0 +1,2 @@
+- name: Itch.io - Publish
+  uses: KikimoraGames/itch-publish@v0.0.3
