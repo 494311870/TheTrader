@@ -7,7 +7,7 @@ on:
       - master
 env:
   ITCH_USERNAME: arcmt
-  ITCH_GAME_ID: the-trader-beta
+  ITCH_GAME_ID: the-trader
   GODOT_VERSION: 4.4.1
   EXPORT_NAME: TheTrader
   PROJECT_PATH: .
