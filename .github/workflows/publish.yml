@@ -76,7 +76,7 @@ jobs:
     needs: [export-web]
     strategy:
       matrix:
-        channel: [windows, web]   
+        channel: [web]   
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
