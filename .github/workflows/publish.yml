@@ -14,6 +14,7 @@ env:
 jobs:
   export-windows:
     name: Windows Export
+    if: false
     runs-on: ubuntu-20.04
     container:
       image: barichello/godot-ci:4.4.1
@@ -72,7 +73,7 @@ jobs:
     name: Deploy to Itch
     runs-on: ubuntu-20.04
     container: lfdev/butler:latest
-    needs: [export-windows, export-web]
+    needs: [export-web]
     strategy:
       matrix:
         channel: [windows, web]   
