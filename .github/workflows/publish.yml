@@ -14,7 +14,7 @@ env:
 jobs:
   export-windows:
     name: Windows Export
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
     steps:
@@ -43,7 +43,7 @@ jobs:
           
   export-web:
     name: Web Export
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
     steps:
@@ -70,7 +70,7 @@ jobs:
 
   deploy-to-itch:
     name: Deploy to Itch
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     container: lfdev/butler:latest
     needs: [export-windows, export-web]
     strategy:
