@@ -7,13 +7,14 @@ on:
       - master
 env:
   ITCH_USERNAME: arcmt
-  ITCH_GAME_ID: the-trader-beta
+  ITCH_GAME_ID: the-trader
   GODOT_VERSION: 4.4.1
   EXPORT_NAME: TheTrader
   PROJECT_PATH: .
 jobs:
   export-windows:
     name: Windows Export
+    if: false
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.4.1
@@ -72,10 +73,10 @@ jobs:
     name: Deploy to Itch
     runs-on: ubuntu-latest
     container: lfdev/butler:latest
-    needs: [export-windows, export-web]
+    needs: [export-web]
     strategy:
       matrix:
-        channel: [windows, web]   
+        channel: [web]   
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v4
